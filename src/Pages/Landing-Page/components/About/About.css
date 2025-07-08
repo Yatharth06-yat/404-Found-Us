@@ -1,294 +1,259 @@
-/* Custom CSS generated from Tailwind classes and additional user-provided styles */
-
 .about-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding-bottom: 5rem; /* pb-20 */
-    font-family: 'Inter', sans-serif; /* font-inter (assuming 'Inter' is defined or imported in your global CSS) */
+    padding-bottom: 5rem;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Mapping .Abot to .about-container or a top-level section if applicable based on the original JSX context */
-/* Given the JSX structure, .about-content-wrapper seems to be the closest equivalent for styling like .Abot */
 .about-content-wrapper {
     width: 100%;
-    max-width: 72rem; /* max-w-6xl */
-    /* Updated based on .Abot styles */
-    max-width: 1100px; /* from .Abot */
-    padding: 12px; /* from .Abot */
-    background-color: white; /* from .Abot */
-    display: flex; /* from .Abot */
-    flex-direction: column; /* from .Abot */
-    margin: 40px auto 4px auto; /* from .Abot */
-    border-radius: 20px; /* from .Abot */
-    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.06); /* from .Abot */
-    position: relative; /* Changed from absolute in .Abot, as this div is part of the flow */
-    /* End .Abot mapping */
-    
-    /* Original .about-content-wrapper styles that might be overridden or need re-evaluation */
-    /* space-y-12 was handled implicitly by margin/padding and flex-direction column now */
+    max-width: 80rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    position: relative;
 }
-
 
 .story-section,
 .mission-values-section,
 .team-section,
 .why-choose-section {
-    background-color: #ffffff; /* bg-white */
-    border-radius: 1.5rem; /* rounded-3xl */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
-    padding: 2rem; /* p-8 */
-    transition-property: transform; /* transition-transform */
-    transition-duration: 200ms; /* duration-200 */
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition-property: transform;
+    transition-duration: 200ms;
 }
 
 .story-section:hover,
 .mission-values-section:hover,
 .team-section:hover,
 .why-choose-section:hover {
-    transform: translateY(-5px); /* hover:translate-y-[-5px] */
+    transform: translateY(-5px);
 }
 
-/* Mapped .story h2 to .section-title where it applies */
-/* Specific for story h2, overriding .section-title for this case */
-.story-section h2 { /* .story h2 */
-    font-size: xx-large; /* from .story h2 */
-    font-weight: 700; /* from .story h2 */
-    color: rgb(29, 78, 216); /* from .story h2 */
-    /* pb-2 from original, will be overridden by padding from this rule if combined*/
-    /* mb-6 from original, will be overridden or needs explicit setting */
-    margin-bottom: 1.5rem; /* Re-added from previous section-title */
-    padding-bottom: 0.5rem; /* Re-added from previous section-title */
-    display: inline-block; /* Re-added from previous section-title */
+.story-section h2 {
+    font-size: xx-large;
+    font-weight: 700;
+    color: rgb(29, 78, 216);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
-/* General section title, may be overridden by more specific rules */
 .section-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    color: #1d4ed8; /* text-blue-700 */
-    margin-bottom: 1.5rem; /* mb-6 */
-    padding-bottom: 0.5rem; /* pb-2 */
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #0044ff;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
     display: inline-block;
 }
 
 .story-text {
-    color: #4b5563; /* text-gray-700 */
-    font-size: 1.125rem; /* text-lg */
-    line-height: 1.625; /* leading-relaxed */
-    margin-bottom: 2rem; /* mb-8 */
+    color: #4b5563;
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin-bottom: 2rem;
 }
 
-/* Mapped .story to .story-section */
-.story-section { /* .story */
-    display: flex; /* from .story */
-    flex-direction: column; /* from .story */
-    padding-left: 12px; /* from .story */
-    padding-right: 12px; /* from .story */
-    position: relative; /* from .story */
-    /* Overrides original p-8 */
-    padding: 2rem; /* Retain original padding if desired, or adjust */
+.story-section {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+    padding: 2rem;
 }
 
-
-/* Mapped .timeline to .timeline-list for the ul */
-.timeline-list { /* .story .clas .timeline, and also .timeline */
-    display: flex; /* from new .timeline */
-    flex-direction: column; /* from new .timeline */
-    list-style: disc; /* from new .timeline */
-    margin: 12px; /* from new .timeline */
-    padding: 12px; /* from new .timeline */
-    position: relative; /* from new .timeline */
-    /* Previous styles that might be overridden: list-style: none, padding: 0, margin: 0, gap: 1.5rem */
-    list-style-type: disc; /* Ensure disc list style if preferred over custom pseudo-elements */
-    gap: initial; /* Reset gap as margin-bottom on li will control spacing */
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+    list-style: disc;
+    margin: 12px;
+    padding: 12px;
+    position: relative;
+    list-style-type: disc;
+    gap: initial;
 }
 
-/* Mapped .heigh to .timeline-height-indicator */
-.timeline-height-indicator { /* .heigh */
-    position: absolute; /* from .heigh */
-    width: 2px; /* from .heigh */
-    top: 4%; /* from .heigh */
-    min-height: 81%; /* from .heigh */
-    left: 22px; /* from .heigh */
-    z-index: 1; /* from .heigh */
-    background-color: rgb(29, 78, 216); /* from .heigh */
+.timeline-height-indicator {
+    position: absolute;
+    width: 2px;
+    top: 6%;
+    min-height: 70%;
+    left: 3.75%;
+    z-index: 1;
+    background-color: rgb(29, 78, 216);
 }
 
 @media only screen and (min-width: 900px) {
-    .timeline-height-indicator { /* .heigh */
-        top: 7%; /* from .heigh */
-        min-height: 83%; /* from .heigh */
+    .timeline-height-indicator {
+        left: 0.85%;
+        top: 9%;
+        min-height: 70%;
     }
 }
 
-@media only screen and (max-width: 900px) and (min-width: 680px) {
-    .timeline-height-indicator { /* .heigh */
-        min-height: 90%; /* from .heigh */
+@media only screen and (max-width: 900px) and (min-width: 610px) {
+    .timeline-height-indicator {
+        top: 8%;
+        left: 1.5%;
+        min-height: 70%;
     }
 }
 
-
-/* Mapped .timeline li to .timeline-item */
-.timeline-item { /* .timeline li */
-    padding-left: 24px; /* from .timeline li */
-    margin-bottom: 24px; /* from .timeline li */
-    position: relative; /* from .timeline li */
-    /* Overrides previous text-gray-700 and text-lg if specific enough */
-    color: #4b5563; /* Keep original text-gray-700 */
-    font-size: 1.125rem; /* Keep original text-lg */
+.timeline-item {
+    list-style-type: none;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    color: #4b5563;
+    font-size: 1.125rem;
 }
 
-/* Mapped .timeline li::before to .timeline-item::before */
-.timeline-item::before { /* .timeline li::before */
-    content: ''; /* from .timeline li::before */
-    position: absolute; /* from .timeline li::before */
-    left: -8px; /* from .timeline li::before */
-    top: 6px; /* from .timeline li::before */
-    width: 14px; /* from .timeline li::before */
-    height: 14px; /* from .timeline li::before */
-    background: rgb(29, 78, 216); /* from .timeline li::before */
-    border-radius: 50%; /* from .timeline li::before */
-    border: 2px solid #fff; /* from .timeline li::before */
-    box-shadow: 0 0 0 2px rgb(29, 78, 216); /* from .timeline li::before */
-    /* Overrides previous .timeline-item::before styles */
-    z-index: 1; /* Keep original z-index */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: rgb(29, 78, 216);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgb(29, 78, 216);
+    z-index: 1;
 }
 
 .timeline-year {
-    color: #1d4ed8; /* text-blue-700 */
+    color: #1d4ed8;
 }
 
 .mission-text {
-    color: #4b5563; /* text-gray-700 */
-    font-size: 1.125rem; /* text-lg */
-    margin-bottom: 1rem; /* mb-4 (for the first p) */
+    color: #4b5563;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
 }
 
 .mission-value-strong {
-    color: #1d4ed8; /* text-blue-700 */
+    color: #1d4ed8;
 }
 
-/* Mapped .team to .team-section h2 */
-.team-section h2 { /* .team */
-    color: #0066b2; /* from .team */
-    font-size: xx-large; /* from .team */
-    font-weight: 700; /* from .team */
-    margin-left: 12px; /* from .team */
-    position: relative; /* from .team */
-    /* Overrides .section-title for this specific element */
+.team-section h2 {
+    color: #0044ff;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-left: 12px;
+    position: relative;
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
-    gap: 1.5rem; /* gap-6 */
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
     .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (min-width: 1024px) { /* lg */
+@media (min-width: 1024px) {
     .team-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr)); /* lg:grid-cols-4 */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
 .doctor-card {
-    background-color: #f9fafb; /* bg-gray-50 */
-    border-radius: 1rem; /* rounded-2xl */
-    border-color: #93c5fd; /* border-blue-300 */
-    border-width: 2px; /* border-2 */
-    border-style: solid; /* border-solid */
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-    padding: 1.25rem; /* p-5 */
+    background-color: #f9fafb;
+    border-radius: 1rem;
+    border-color: #93c5fd;
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition-property: transform; /* transition-transform */
-    transition-duration: 200ms; /* duration-200 */
+    transition-property: transform;
+    transition-duration: 200ms;
 }
 
 .doctor-card:hover {
-    transform: translateY(-5px); /* hover:translate-y-[-5px] */
+    transform: translateY(-5px);
 }
 
 .doctor-img {
-    width: 8rem; /* w-32 */
-    height: 8rem; /* h-32 */
-    border-radius: 9999px; /* rounded-full */
-    object-fit: cover; /* object-cover */
-    margin-bottom: 1rem; /* mb-4 */
-    border-width: 4px; /* border-4 */
-    border-color: #bfdbfe; /* border-blue-200 */
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-width: 4px;
+    border-color: #bfdbfe;
 }
 
 .doctor-name {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    color: #2b3543; /* text-gray-800 */
-    margin-bottom: 0.25rem; /* mb-1 */
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2b3543;
+    margin-bottom: 0.25rem;
 }
 
 .doctor-degree {
-    color: #2563eb; /* text-blue-600 */
-    font-size: 1rem; /* text-md */
-    margin-bottom: 0.25rem; /* mb-1 */
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
 }
 
 .doctor-experience {
-    color: #4b5563; /* text-gray-600 */
-    font-size: 0.875rem; /* text-sm */
+    color: #4b5563;
+    font-size: 0.875rem;
 }
 
 .why-choose-list {
-    list-style: none; /* list-none */
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem; /* space-y-3 */
+    gap: 0.75rem;
 }
 
-/* Mapped .reason ul li to .why-choose-item for list items */
-.why-choose-list .why-choose-item { /* .reason ul li */
-    list-style-type: disc; /* from .reason ul li */
-    padding: 4px; /* from .reason ul li */
-    margin: 4px; /* from .reason ul li */
-    margin-left: 10px; /* from .reason ul li */
-    /* Overrides previous flex, items-start, text-gray-700, text-lg */
-    display: flex; /* keep flex from original */
-    align-items: flex-start; /* keep align-items from original */
-    color: #4b5563; /* Keep original text-gray-700 */
-    font-size: 1.125rem; /* Keep original text-lg */
+.why-choose-list .why-choose-item {
+    list-style-type: disc;
+    padding: 4px;
+    margin: 4px;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    color: #4b5563;
+    font-size: 1.125rem;
 }
 
 .why-choose-icon {
-    color: #2563eb; /* text-blue-600 */
-    margin-right: 0.75rem; /* mr-3 */
-    font-size: 1.25rem; /* text-xl */
+    color: #2563eb;
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
 }
 
-/* Mapped .reason-label to .why-choose-section h2 if applicable, or a new class */
-/* Assuming .reason-label might be for the h2 within "Why Choose CityCare?" section */
-.why-choose-section h2 { /* .Abot h2, .reason-label */
-    position: relative; /* from .reason-label */
-    font-size: xx-large; /* from .Abot h2 */
-    font-weight: 700; /* from .Abot h2 */
-    color: #0066b2; /* from .Abot h2 */
-    padding-left: 12px; /* from .Abot h2 */
-    /* Overrides .section-title for this specific element */
+.why-choose-section h2 {
+    position: relative;
+    font-size: xx-large;
+    font-weight: 700;
+    color: #0044ff;
 }
 
-/* Mapped .reason ul to .why-choose-list if applicable */
-.why-choose-list { /* .reason ul */
-    position: relative; /* from .reason ul */
-    padding: 12px; /* from .reason ul */
-    padding-left: 29px; /* from .reason ul */
-    /* Overrides previous padding: 0 and margin: 0 */
+.why-choose-list {
+    position: relative;
+    padding: 12px;
+    padding-left: 29px;
 }
