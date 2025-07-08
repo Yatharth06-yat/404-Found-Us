@@ -10,7 +10,7 @@ import './Landing-Page.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-function App() {
+function Landing_Page() {
 
 
   return (
@@ -52,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing_Page;
