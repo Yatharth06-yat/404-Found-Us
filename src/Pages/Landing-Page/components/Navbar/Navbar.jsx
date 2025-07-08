@@ -6,10 +6,10 @@ import NavbarSidebar from "./NavbarSidebar";
 import "./Navbar.css";
 
 const navLinks = [
-  { to: "/home", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-  { to: "/sign-up", label: "Sign Up" }
+  { to: "/landing-page/home", label: "Home" },
+  { to: "/landing-page/about", label: "About" },
+  { to: "/landing-page/contact", label: "Contact" },
+  { to: "/landing-page/sign-up", label: "Sign Up" }
 ];
 
 export default function Navbar() {
@@ -21,8 +21,8 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-logo">
-          <NavLink to="/home" onClick={closeSidebar}>
-            <img src="src\assets\react.svg" alt="" />
+          <NavLink to="/landing-page/home" onClick={closeSidebar}>
+           jj
           </NavLink>
         </div>
         <NavbarLinks links={navLinks} onClick={closeSidebar} />

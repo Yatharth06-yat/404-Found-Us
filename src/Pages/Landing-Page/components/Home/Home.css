@@ -1,0 +1,102 @@
+.main .company {
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80");
+    border-radius: 14px;
+    border: 1px solid rgb(187, 187, 187);
+    width: 30vmax;
+    height: 30vmin;
+    background-size: cover;
+}
+
+.text h2 {
+    font-weight: 700;
+    font-size: 4vmax;
+}
+
+.main {
+    min-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    margin: 5px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 12px;
+}
+
+.text a {
+    width: fit-content;
+    background: linear-gradient(90deg, blue 0%, purple 100%);
+    color: white;
+    border-radius: 50vh;
+    padding: 12px 20px;
+}
+
+.main {
+    height: 50vh;
+    background-color: rgb(182, 207, 255);
+    margin: 0;
+    align-items: center;
+}
+
+.text p {
+    font-weight: 400;
+    width: 60vw;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.company h2 {
+    font-weight: 700;
+    font-size: 2.15vw;
+    color: rgb(144, 0, 255);
+    position: absolute;
+    top: 61%;
+    left: 10%;
+    right: 2%;
+    text-align: right;
+}
+
+.company p {
+    font-size:1rem;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    top: 23vh;
+    right: 2%;
+    text-align: right;
+
+}
+
+@media only screen and (orientation: portrait) {
+    .main {
+        flex-wrap: wrap;
+        gap: 20px;
+        height: fit-content;
+    }
+
+    .text p{
+        width: 90vw;
+    }
+
+    .main .company {
+        width: 74%;
+        height: 190px;
+        margin-bottom: 15px;
+    }
+    .company h2{
+        color: rgb(198, 0, 198);
+        font-size: 122%;
+    }
+    .company p{
+        left: 5%;
+        top: 77%;
+        font-size: 80%;
+    }
+}
