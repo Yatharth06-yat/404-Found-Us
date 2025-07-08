@@ -1,0 +1,43 @@
+.team {
+    color: #0066b2;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-left: 12px;
+    position: relative;
+}
+
+.Abot {
+    max-width: 1100px;
+    padding: 12px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 40px auto 4px auto;
+    border-radius: 20px;
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.06);
+    position: absolute;
+}
+
+.reason ul li{
+    list-style-type: disc;
+    padding: 4px;
+    margin: 4px;
+    margin-left: 10px;
+}
+.Abot h2{
+    font-size: xx-large;
+    font-weight: 700;
+    color:#0066b2;
+    padding-left: 12px;
+}
+
+.reason-label{
+    position: relative;
+}
+
+.reason ul{
+    position: relative;
+    padding: 12px;
+    padding-left: 29px;
+}
+

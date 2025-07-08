@@ -1,0 +1,64 @@
+.story .clas .timeline {
+    display: flex;
+    flex-direction: column;
+    list-style: disc;
+    margin: 12px;
+    padding: 12px;
+    position: relative;
+}
+
+.timeline li {
+    padding-left: 24px;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: rgb(29, 78, 216);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgb(29, 78, 216);
+}
+
+.story h2 {
+    font-size: xx-large;
+    font-weight: 700;
+    color: rgb(29, 78, 216);
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+}
+
+.heigh {
+    position: absolute;
+    width: 2px;
+    top: 4%;
+    min-height: 81%;
+    left: 22px;
+    z-index: 1;
+    background-color: rgb(29, 78, 216);
+}
+
+@media only screen and (min-width: 900px) {
+    .heigh{
+        top: 7%;
+        min-height: 83%;
+    }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 680px) {
+    .heigh{
+        min-height: 90%;
+    }
+}
