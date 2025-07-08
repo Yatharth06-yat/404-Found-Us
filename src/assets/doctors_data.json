@@ -1,0 +1,122 @@
+[
+    {
+      "doctor_id": "DOC001",
+      "name": "Dr. John Smith",
+      "specialty": "Cardiology",
+      "post": "Chief Cardiologist",
+      "experience": "25 years",
+      "contact_number": "+1-555-0123",
+      "email": "john.smith@citycare.com",
+      "qualifications": "MD, FACC, PhD in Cardiology",
+      "department": "Cardiology Department",
+      "availability": "Monday-Friday, 9:00 AM - 5:00 PM"
+    },
+    {
+      "doctor_id": "DOC002",
+      "name": "Dr. Priya Sharma",
+      "specialty": "Pediatrics",
+      "post": "Head of Pediatrics",
+      "experience": "18 years",
+      "contact_number": "+1-555-0124",
+      "email": "priya.sharma@citycare.com",
+      "qualifications": "MD, FAAP, Pediatric Specialist",
+      "department": "Pediatrics Department",
+      "availability": "Monday-Saturday, 8:00 AM - 4:00 PM"
+    },
+    {
+      "doctor_id": "DOC003",
+      "name": "Dr. Alex Kim",
+      "specialty": "Orthopedics",
+      "post": "Senior Orthopedic Surgeon",
+      "experience": "22 years",
+      "contact_number": "+1-555-0125",
+      "email": "alex.kim@citycare.com",
+      "qualifications": "MD, MS Orthopedics, Sports Medicine",
+      "department": "Orthopedics Department",
+      "availability": "Tuesday-Saturday, 10:00 AM - 6:00 PM"
+    },
+    {
+      "doctor_id": "DOC004",
+      "name": "Dr. Sara Lee",
+      "specialty": "Neurology",
+      "post": "Consultant Neurologist",
+      "experience": "16 years",
+      "contact_number": "+1-555-0126",
+      "email": "sara.lee@citycare.com",
+      "qualifications": "MD, DM Neurology, FAAN",
+      "department": "Neurology Department",
+      "availability": "Monday-Thursday, 9:00 AM - 5:00 PM"
+    },
+    {
+      "doctor_id": "DOC005",
+      "name": "Dr. Michael Brown",
+      "specialty": "General Surgery",
+      "post": "Chief of Surgery",
+      "experience": "28 years",
+      "contact_number": "+1-555-0127",
+      "email": "michael.brown@citycare.com",
+      "qualifications": "MD, FACS, General Surgery",
+      "department": "Surgery Department",
+      "availability": "Monday-Friday, 7:00 AM - 3:00 PM"
+    },
+    {
+      "doctor_id": "DOC006",
+      "name": "Dr. Emily Johnson",
+      "specialty": "Dermatology",
+      "post": "Senior Dermatologist",
+      "experience": "14 years",
+      "contact_number": "+1-555-0128",
+      "email": "emily.johnson@citycare.com",
+      "qualifications": "MD, Board Certified Dermatologist",
+      "department": "Dermatology Department",
+      "availability": "Monday-Wednesday, Friday, 10:00 AM - 4:00 PM"
+    },
+    {
+      "doctor_id": "DOC007",
+      "name": "Dr. Robert Davis",
+      "specialty": "Oncology",
+      "post": "Medical Oncologist",
+      "experience": "19 years",
+      "contact_number": "+1-555-0129",
+      "email": "robert.davis@citycare.com",
+      "qualifications": "MD, FASCO, Hematology-Oncology",
+      "department": "Oncology Department",
+      "availability": "Tuesday-Saturday, 8:00 AM - 4:00 PM"
+    },
+    {
+      "doctor_id": "DOC008",
+      "name": "Dr. Lisa Wang",
+      "specialty": "Gynecology",
+      "post": "Senior Gynecologist",
+      "experience": "21 years",
+      "contact_number": "+1-555-0130",
+      "email": "lisa.wang@citycare.com",
+      "qualifications": "MD, FACOG, Obstetrics & Gynecology",
+      "department": "Women's Health Department",
+      "availability": "Monday-Friday, 9:00 AM - 5:00 PM"
+    },
+    {
+      "doctor_id": "DOC009",
+      "name": "Dr. James Wilson",
+      "specialty": "Emergency Medicine",
+      "post": "Emergency Department Head",
+      "experience": "15 years",
+      "contact_number": "+1-555-0131",
+      "email": "james.wilson@citycare.com",
+      "qualifications": "MD, FACEP, Emergency Medicine",
+      "department": "Emergency Department",
+      "availability": "24/7 Emergency Services"
+    },
+    {
+      "doctor_id": "DOC010",
+      "name": "Dr. Rachel Green",
+      "specialty": "Radiology",
+      "post": "Chief Radiologist",
+      "experience": "17 years",
+      "contact_number": "+1-555-0132",
+      "email": "rachel.green@citycare.com",
+      "qualifications": "MD, ABR, Diagnostic Radiology",
+      "department": "Radiology Department",
+      "availability": "Monday-Friday, 8:00 AM - 6:00 PM"
+    }
+  ]

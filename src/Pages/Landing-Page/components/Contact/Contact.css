@@ -1,0 +1,128 @@
+/* Overall page background, as seen in the image */
+.contact-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    padding-top: 2rem;
+}
+
+.contact-container {
+    width: 100%;
+    padding-bottom: 4rem;
+    max-width: 72rem;
+}
+
+.contact-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-delay: 200ms;
+}
+
+.contact-title:hover {
+    transform: translateY(-4px);
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.contact-card {
+    max-width: 340px;
+    min-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    background-color: #FFFFFF;
+    padding: 2rem;
+    margin-bottom: 0;
+    transition-property: transform;
+    transition-duration: 200ms;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-doctor-icon {
+    background-color: #dbeafe;
+    color: #2563eb;
+    border-radius: 9999px;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.contact-doctor-name {
+    color: #2b3543;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.contact-doctor-experience {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.contact-details-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-detail-item {
+    color: #4b5563;
+}
+
+.contact-detail-label {
+    font-weight: 500;
+}
+
+.contact-info-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-info-title {
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.contact-info-text {
+    color: #4b5563;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import topDoctors from "../../../../assets/topDoctors.json";
-import "./About.css"; // Import the new CSS file
+import "./About.css";
 
 const About = () => {
     return (
@@ -71,7 +71,6 @@ const About = () => {
                         </div>
                     </div>
 
-                    {/* Why Choose CityCare? Section */}
                     <div className="why-choose-section">
                         <h2 className="section-title">
                             Why Choose CityCare?
