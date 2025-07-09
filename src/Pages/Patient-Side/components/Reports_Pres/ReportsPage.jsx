@@ -55,14 +55,14 @@ export default function ReportsPage() {
   );
 
   return (
-    <div className="reports-dashboard-root">
+    <div className="reports-home-root">
       <Sidebar
         collapsed={sidebarCollapsed}
         setCollapsed={setSidebarCollapsed}
         active={activeSection}
         setActive={setActiveSection}
       />
-      <main className="dashboard-main">
+      <main className="home-main">
         {(activeSection === "home" || activeSection === "reports") && (
           <section className="section-card">
             <h2 className="gradient-heading">

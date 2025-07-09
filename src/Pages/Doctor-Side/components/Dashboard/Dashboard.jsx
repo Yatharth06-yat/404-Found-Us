@@ -47,15 +47,15 @@ export default function DoctorDashboardPage({ user, alerts = [] }) {
 
   return (
     <div className="container">
-      <div className="dashboard-container">
-        <div className="dashboard-left">
+      <div className="home-container">
+        <div className="home-left">
           <DoctorDashboardGreeting
             user={user}
             avatar={user.avatarUrl || defaultDoctorAvatar}
             quote={quote}
           />
         </div>
-        <div className="dashboard-right">
+        <div className="home-right">
           <DoctorNotificationBell appointments={upcomingAppointments} />
           <div className="top-appointments-section">
             <h3>Top Upcoming Appointments</h3>

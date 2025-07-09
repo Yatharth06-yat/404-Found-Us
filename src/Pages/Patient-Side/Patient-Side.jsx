@@ -31,12 +31,12 @@ function Patient_Side() {
         <Navbar />
         <main className="main-content">
           <Routes>
-            <Route path="dashboard" element={<DashboardPage user={user} appointments={appointments} reminders={reminders} />} />
+            <Route path="home" element={<DashboardPage user={user} appointments={appointments} reminders={reminders} />} />
             <Route path="appointments" element={<AppointmentsPage appointments={appointments} setAppointments={setAppointments} />} />
             <Route path="medicalHistory" element={<MedicalHistoryPage medicalHistory={medicalHistory} />} />
             <Route path="reports" element={<ReportsPage prescriptions={prescriptions} bloodReports={bloodReports} />} />
             <Route path="profile" element={<ProfilePage user={user} setUser={setUser} />} />
-            <Route path="*" element={<Navigate to="dashboard" replace />} />
+            <Route path="*" element={<Navigate to="home" replace />} />
           </Routes>
         </main>
         <Footer />

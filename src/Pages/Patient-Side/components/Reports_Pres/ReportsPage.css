@@ -85,7 +85,7 @@ body {
     font-size: var(--font-size-base);
 }
 
-.reports-dashboard-root {
+.reports-home-root {
     display: flex;
     min-height: 100vh;
     background: transparent;
@@ -315,7 +315,7 @@ body {
     margin: 0;
 }
 
-.dashboard-main {
+.home-main {
     flex: 1;
     padding: var(--spacing-2xl);
     overflow-y: auto;
@@ -991,7 +991,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .dashboard-main {
+    .home-main {
         padding: var(--spacing-xl) var(--container-padding);
     }
     .gradient-heading {
@@ -1020,7 +1020,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .dashboard-main {
+    .home-main {
         padding: var(--spacing-lg) var(--container-padding);
     }
     .section-card {

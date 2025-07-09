@@ -58,15 +58,15 @@ export default function StatsCards({ appointments, prescriptions, bloodReports }
   ];
 
   return (
-    <div className="dashboard-stats-grid-container">
-      <div className="dashboard-stats-grid">
+    <div className="home-stats-grid-container">
+      <div className="home-stats-grid">
         {stats.map((stat, idx) => (
-          <div className="dashboard-stat-card" key={idx}>
-            <div className="dashboard-stat-header">
-              <span className="dashboard-stat-icon">{stat.icon}</span>
-              <div className="dashboard-stat-label">{stat.label}</div>
+          <div className="home-stat-card" key={idx}>
+            <div className="home-stat-header">
+              <span className="home-stat-icon">{stat.icon}</span>
+              <div className="home-stat-label">{stat.label}</div>
             </div>
-            <div className="dashboard-stat-value">{stat.value}</div>
+            <div className="home-stat-value">{stat.value}</div>
           </div>
         ))}
       </div>

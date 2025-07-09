@@ -29,7 +29,7 @@ const palette = [
 
 export default function HealthReportTrendCharts({ reportsData = initialReports }) {
     return (
-        <section className="dashboard-graphs-grid">
+        <section className="home-graphs-grid">
             {uniqueReportTypes.map((type, idx) => {
                 const label = type.charAt(0).toUpperCase() + type.slice(1);
                 const data = getSingleReportTrendData(reportsData, type);

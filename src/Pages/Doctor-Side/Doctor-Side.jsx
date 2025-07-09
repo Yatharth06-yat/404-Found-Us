@@ -28,11 +28,11 @@ function Doctor_Side() {
         <Navbar />
         <div className="main-content">
           <Routes>
-            <Route path="dashboard" element={<DashboardPage user={user} />} />
+            <Route path="home" element={<DashboardPage user={user} />} />
             <Route path="patientList" element={<PatientListPage />} />
             <Route path="doctorProfile" element={<DoctorProfilePage />} />
             <Route path="profile" element={<ProfilePage user={user} onUpdateProfile={handleUpdateProfile} />} />
-            <Route path="*" element={<Navigate to="/doctor-side/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/doctor-side/home" replace />} />
           </Routes>
         </div>
         <Footer />

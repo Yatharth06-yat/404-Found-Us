@@ -85,7 +85,7 @@ body {
     font-size: var(--font-size-base);
 }
 
-.reports-dashboard-root {
+.reports-home-root {
     display: flex;
     min-height: 100vh;
     background: transparent;
@@ -315,7 +315,7 @@ body {
     margin: 0;
 }
 
-.dashboard-main {
+.home-main {
     flex: 1;
     padding: var(--spacing-2xl);
     overflow-y: auto;
@@ -807,6 +807,8 @@ body {
     transform: scale(1.1) rotate(90deg);
 }
 
+a 
+
 .modal-close:focus-visible {
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
 }
@@ -991,7 +993,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .dashboard-main {
+    .home-main {
         padding: var(--spacing-xl) var(--container-padding);
     }
     .gradient-heading {
@@ -1020,7 +1022,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .dashboard-main {
+    .home-main {
         padding: var(--spacing-lg) var(--container-padding);
     }
     .section-card {
@@ -1030,7 +1032,6 @@ body {
         font-size: 1.5rem;
         margin-bottom: var(--spacing-md);
     }
-    .report-card,
     .prescription-card {
         padding: var(--spacing-md);
     }
@@ -1264,7 +1265,7 @@ body {
     .report-card {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0;
+        padding: 10px;
         min-width: unset;
         width: 100%;
         border: none;

@@ -30,11 +30,11 @@ export default function DashboardPage({
 
   return (
     <>
-      <div className="dashboard-container">
-        <div className="dashboard-left">
+      <div className="home-container">
+        <div className="home-left">
           <DashboardGreeting user={user} avatar={user.avatarUrl || defaultAvatar} quote={selectedQuote} />
         </div>
-        <div className="dashboard-right">
+        <div className="home-right">
           <NotificationBell
             alerts={alerts}
             appointments={appointmentsData}

@@ -52,7 +52,7 @@ Database: MySQL
 ### 🚀 Features
 
 * Patient registration and secure login
-* Doctor and Admin dashboards with separate privileges
+* Doctor and Admin homes with separate privileges
 * Appointment booking and scheduling
 * Upload and view medical reports
 * Prescription generation and sharing
