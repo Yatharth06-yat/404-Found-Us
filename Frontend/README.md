@@ -1,18 +1,18 @@
-# 🏥 E-Healthcare Management System
+#### 🏥 E-Healthcare Management System
 
 A comprehensive digital platform that connects patients, doctors, and admins to simplify healthcare services and streamline hospital workflows.
 
 
 
-## 🧠 Overview
+##### 🧠 Overview
 
-### Problem Statement:
+###### Problem Statement:
 
 Existing healthcare workflows lack integration and real-time access to patient data, leading to inefficiencies and errors. We aim to build a comprehensive E-Health Management System that digitizes and centralizes healthcare services for better accessibility, accuracy, and coordination.
 
 
 
-### Solution Highlights:
+###### Solution Highlights:
 
 ###### 
 
@@ -26,7 +26,7 @@ Existing healthcare workflows lack integration and real-time access to patient d
 
 
 
-### 👨‍💻 Team
+👨‍💻 Team
 
 Team Name: 404 Found Us
 
@@ -39,7 +39,7 @@ Team Members:
 
 
 
-### 🛠️ Tech Stack
+##### 🛠️ Tech Stack
 
 Frontend: React.js, HTML, CSS, JavaScript
 
@@ -49,10 +49,10 @@ Database: MySQL
 
 
 
-### 🚀 Features
+##### 🚀 Features
 
 * Patient registration and secure login
-* Doctor and Admin homes with separate privileges
+* Doctor and Admin dashboards with separate privileges
 * Appointment booking and scheduling
 * Upload and view medical reports
 * Prescription generation and sharing
@@ -62,7 +62,7 @@ Database: MySQL
 
 
 
-### 🔮 Future Scope
+##### 🔮 Future Scope
 
 * AI-based diagnosis suggestions using patient symptoms and history 🤖
 * Mobile app development for Android and iOS platforms 📱
@@ -72,3 +72,7 @@ Database: MySQL
 * Automated SMS/email reminders for appointments and prescriptions 📩
 * Use of blockchain for secure and traceable medical records 🔐
 * Data backup and recovery system for fault tolerance 💾
+
+##### 📊 Project Presentation
+[[📥 Download Presentation (Google Drive)]]
+(https://docs.google.com/presentation/d/1Ou4gubTXCDdbeCVilBCem3EhjCfmecmB/edit?usp=sharing&ouid=109351413562130339305&rtpof=true&sd=true)
