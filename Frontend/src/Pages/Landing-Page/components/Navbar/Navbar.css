@@ -60,7 +60,7 @@ body {
     box-sizing: border-box;
     min-height: 56px;
     position: relative;
-    z-index: 100;
+     : 100;
 }
 
 .navbar:hover {
@@ -112,7 +112,7 @@ body {
     align-items: center;
     gap: var(--navbar-gap);
     position: relative;
-    z-index: 10;
+     : 10;
 }
 
 .navbar-links {
@@ -179,7 +179,7 @@ body {
     min-height: 40px;
     align-items: center;
     justify-content: center;
-    z-index: 1101;
+     : 1101;
     position: relative;
 }
 
@@ -248,7 +248,7 @@ body {
     height: 100vh;
     background: var(--sidebar-bg);
     box-shadow: -10px 0 30px rgba(80, 100, 130, 0.18), -2px 0 8px rgba(80, 100, 130, 0.05);
-    z-index: 2000;
+     : 2000;
     padding: var(--sidebar-padding-vertical) var(--sidebar-padding-horizontal);
     display: flex;
     flex-direction: column;
@@ -279,7 +279,7 @@ body {
     padding: var(--spacing-sm);
     border-radius: 50%;
     font-size: 1.6rem;
-    z-index: 1;
+     : 1;
     transition: background 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
     outline-offset: 2px;
     box-shadow: 0 1px 4px rgba(80, 100, 130, 0.05);
@@ -362,7 +362,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.38);
-    z-index: 1999;
+     : 1999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.4s;

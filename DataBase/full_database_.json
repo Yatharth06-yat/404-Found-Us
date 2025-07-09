@@ -1,0 +1,606 @@
+{
+    "appointments": [
+        {
+            "appointment_date": "2025-07-05",
+            "appointment_time": "10:00:00",
+            "doctor_name": "Dr. Smith",
+            "purpose": "General Checkup",
+            "notes": "Bring previous reports.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-02",
+            "appointment_time": "23:00:00",
+            "doctor_name": "Dr. Johnson",
+            "purpose": "General Checkup",
+            "notes": "Annual physical.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-06-30",
+            "appointment_time": "09:30:00",
+            "doctor_name": "Dr. Williams",
+            "purpose": "Dental Cleaning",
+            "notes": "Avoid food before visit.",
+            "status": "completed"
+        },
+        {
+            "appointment_date": "2025-07-01",
+            "appointment_time": "13:00:00",
+            "doctor_name": "Dr. Brown",
+            "purpose": "Eye Exam",
+            "notes": "Bring eyeglasses.",
+            "status": "completed"
+        },
+        {
+            "appointment_date": "2025-07-06",
+            "appointment_time": "15:00:00",
+            "doctor_name": "Dr. Davis",
+            "purpose": "Skin Rash",
+            "notes": "Affected area is spreading.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-07",
+            "appointment_time": "11:00:00",
+            "doctor_name": "Dr. Wilson",
+            "purpose": "Back Pain",
+            "notes": "Chronic pain for 2 weeks.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-06-28",
+            "appointment_time": "14:00:00",
+            "doctor_name": "Dr. Moore",
+            "purpose": "ENT Checkup",
+            "notes": "Mild hearing loss.",
+            "status": "completed"
+        },
+        {
+            "appointment_date": "2025-07-09",
+            "appointment_time": "16:30:00",
+            "doctor_name": "Dr. Taylor",
+            "purpose": "Follow-up",
+            "notes": "After surgery follow-up.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-10",
+            "appointment_time": "12:00:00",
+            "doctor_name": "Dr. Anderson",
+            "purpose": "Diabetes Management",
+            "notes": "Check glucose logs.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-03",
+            "appointment_time": "10:45:00",
+            "doctor_name": "Dr. Thomas",
+            "purpose": "Vaccination",
+            "notes": "COVID-19 booster dose.",
+            "status": "completed"
+        },
+        {
+            "appointment_date": "2025-07-11",
+            "appointment_time": "09:00:00",
+            "doctor_name": "Dr. Jackson",
+            "purpose": "Chest Pain",
+            "notes": "Urgent consultation.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-04",
+            "appointment_time": "17:00:00",
+            "doctor_name": "Dr. White",
+            "purpose": "Thyroid Test",
+            "notes": "Fasting required.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-08",
+            "appointment_time": "14:15:00",
+            "doctor_name": "Dr. Harris",
+            "purpose": "Migraine",
+            "notes": "Frequent headaches.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-06-29",
+            "appointment_time": "18:00:00",
+            "doctor_name": "Dr. Martin",
+            "purpose": "Stomach Ache",
+            "notes": "Onset 3 days ago.",
+            "status": "completed"
+        },
+        {
+            "appointment_date": "2025-07-12",
+            "appointment_time": "19:30:00",
+            "doctor_name": "Dr. Thompson",
+            "purpose": "Mental Health",
+            "notes": "First therapy session.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-13",
+            "appointment_time": "11:30:00",
+            "doctor_name": "Dr. Garcia",
+            "purpose": "Blood Test",
+            "notes": "Routine screening.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-14",
+            "appointment_time": "13:45:00",
+            "doctor_name": "Dr. Martinez",
+            "purpose": "Nutrition Counseling",
+            "notes": "Bring food diary.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-15",
+            "appointment_time": "08:00:00",
+            "doctor_name": "Dr. Robinson",
+            "purpose": "Cardiology",
+            "notes": "ECG results review.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-16",
+            "appointment_time": "15:30:00",
+            "doctor_name": "Dr. Clark",
+            "purpose": "Injury Review",
+            "notes": "Leg swelling persists.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_date": "2025-07-17",
+            "appointment_time": "18:15:00",
+            "doctor_name": "Dr. Rodriguez",
+            "purpose": "Allergy Test",
+            "notes": "No antihistamines 48h before.",
+            "status": "upcoming"
+        }
+    ],
+    "available_doctors": [
+        {
+            "doctor_name": "Dr. Smith",
+            "timings": "10:00 AM - 2:00 PM"
+        },
+        {
+            "doctor_name": "Dr. Patel",
+            "timings": "2:00 PM - 6:00 PM"
+        },
+        {
+            "doctor_name": "Dr. Lee",
+            "timings": "11:30 AM - 4:00 PM"
+        },
+        {
+            "doctor_name": "Dr. Johnson",
+            "timings": "9:00 AM - 12:00 PM"
+        }
+    ],
+    "prescriptions": [
+        {
+            "prescription_id": 201,
+            "prescription_date": "2025-07-01",
+            "doctor_name": "Dr. Priya Sharma",
+            "doctor_photo": "https://randomuser.me/api/portraits/women/44.jpg",
+            "status": "active",
+            "notes": "Strictly follow the medicine schedule.",
+            "refill_available": true
+        },
+        {
+            "prescription_id": 202,
+            "prescription_date": "2025-06-15",
+            "doctor_name": "Dr. Ravi Mehta",
+            "doctor_photo": "https://randomuser.me/api/portraits/men/32.jpg",
+            "status": "completed",
+            "notes": "Patient showed good response to treatment.",
+            "refill_available": false
+        },
+        {
+            "prescription_id": 203,
+            "prescription_date": "2025-07-03",
+            "doctor_name": "Dr. Anjali Verma",
+            "doctor_photo": "https://randomuser.me/api/portraits/women/68.jpg",
+            "status": "active",
+            "notes": "Take tablets early in the morning before food.",
+            "refill_available": true
+        }
+    ],
+    "prescription_medicines": [
+        {
+            "prescription_id": 201,
+            "medicine_name": "Paracetamol",
+            "dosage": "500mg",
+            "duration": 5,
+            "taken": 3
+        },
+        {
+            "prescription_id": 201,
+            "medicine_name": "Cetrizine",
+            "dosage": "10mg",
+            "duration": 3,
+            "taken": 2
+        },
+        {
+            "prescription_id": 202,
+            "medicine_name": "Metformin",
+            "dosage": "850mg",
+            "duration": 10,
+            "taken": 10
+        },
+        {
+            "prescription_id": 202,
+            "medicine_name": "Losartan",
+            "dosage": "50mg",
+            "duration": 10,
+            "taken": 10
+        },
+        {
+            "prescription_id": 203,
+            "medicine_name": "Levothyroxine",
+            "dosage": "75mcg",
+            "duration": 30,
+            "taken": 2
+        },
+        {
+            "prescription_id": 203,
+            "medicine_name": "Vitamin D3",
+            "dosage": "1000 IU",
+            "duration": 30,
+            "taken": 2
+        }
+    ],
+    "reports": [
+        {
+            "report_id": 1,
+            "report_name": "Complete Blood Count",
+            "report_type": "blood",
+            "report_date": "2025-06-20",
+            "doctor_name": "Dr. Priya Sharma",
+            "is_critical": false,
+            "status": "Normal",
+            "notes": "Patient should monitor hydration levels.",
+            "value": 13.2,
+            "normal_min": 12.0,
+            "normal_max": 16.0
+        },
+        {
+            "report_id": 2,
+            "report_name": "Liver Function Test",
+            "report_type": "liver",
+            "report_date": "2025-05-10",
+            "doctor_name": "Dr. Priya Sharma",
+            "is_critical": true,
+            "status": "Critical",
+            "notes": "Continue medication for liver support.",
+            "value": 55.0,
+            "normal_min": 20.0,
+            "normal_max": 40.0
+        },
+        {
+            "report_id": 3,
+            "report_name": "Kidney Function Test",
+            "report_type": "kidney",
+            "report_date": "2025-06-15",
+            "doctor_name": "Dr. Ravi Mehta",
+            "is_critical": false,
+            "status": "Slightly High",
+            "notes": "Recommend reducing salt intake.",
+            "value": 1.4,
+            "normal_min": 0.6,
+            "normal_max": 1.3
+        },
+        {
+            "report_id": 4,
+            "report_name": "Thyroid Profile",
+            "report_type": "thyroid",
+            "report_date": "2025-04-28",
+            "doctor_name": "Dr. Anjali Verma",
+            "is_critical": false,
+            "status": "Normal",
+            "notes": "No abnormality detected.",
+            "value": 2.1,
+            "normal_min": 0.5,
+            "normal_max": 4.0
+        },
+        {
+            "report_id": 5,
+            "report_name": "Vitamin D Test",
+            "report_type": "vitamin",
+            "report_date": "2025-06-01",
+            "doctor_name": "Dr. Priya Sharma",
+            "is_critical": true,
+            "status": "Deficient",
+            "notes": "Start vitamin D supplements immediately.",
+            "value": 18.0,
+            "normal_min": 30.0,
+            "normal_max": 100.0
+        }
+    ],
+    "medical_history": [
+        {
+            "history_id": 1,
+            "visit_date": "2025-06-28",
+            "reason": "Fever",
+            "doctor_name": "Dr. Sharma",
+            "prescription": "Paracetamol",
+            "notes": null
+        },
+        {
+            "history_id": 2,
+            "visit_date": "2025-05-15",
+            "reason": "Back Pain",
+            "doctor_name": "Dr. Rao",
+            "prescription": null,
+            "notes": null
+        },
+        {
+            "history_id": 3,
+            "visit_date": "2025-01-01",
+            "reason": "Diabetes Checkup",
+            "doctor_name": null,
+            "prescription": null,
+            "notes": null
+        }
+    ],
+    "medical_reports": [
+        {
+            "report_id": 1,
+            "history_id": 1,
+            "file_name": "report1.pdf",
+            "file_url": "https://morth.nic.in/sites/default/files/dd12-13_0.pdf",
+            "uploaded_at": "2025-06-28 09:00:00"
+        },
+        {
+            "report_id": 2,
+            "history_id": 3,
+            "file_name": "glucometer_data.pdf",
+            "file_url": "https://your-server.com/uploads/reports/glucometer_data.pdf",
+            "uploaded_at": "2025-01-01 10:30:00"
+        }
+    ],
+    "patients_list": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "appointment_time": "2025-07-07 10:00:00",
+            "status": "Active",
+            "is_new": false
+        },
+        {
+            "id": 2,
+            "name": "Bob Brown",
+            "appointment_time": "2025-07-07 14:30:00",
+            "status": "Active",
+            "is_new": false
+        },
+        {
+            "id": 3,
+            "name": "Diana Prince",
+            "appointment_time": "2025-07-08 09:00:00",
+            "status": "Active",
+            "is_new": true
+        },
+        {
+            "id": 4,
+            "name": "George Wilson",
+            "appointment_time": "2025-07-09 11:15:00",
+            "status": "Active",
+            "is_new": true
+        },
+        {
+            "id": 5,
+            "name": "Ian Malcolm",
+            "appointment_time": "2025-07-10 10:30:00",
+            "status": "Active",
+            "is_new": false
+        },
+        {
+            "id": 6,
+            "name": "Leo Fitz",
+            "appointment_time": "2025-07-11 15:15:00",
+            "status": "Active",
+            "is_new": true
+        },
+        {
+            "id": 7,
+            "name": "Nick Fury",
+            "appointment_time": "2025-07-12 09:45:00",
+            "status": "Active",
+            "is_new": false
+        },
+        {
+            "id": 8,
+            "name": "Quinn Perkins",
+            "appointment_time": "2025-07-13 16:00:00",
+            "status": "Active",
+            "is_new": true
+        }
+    ],
+    "cards": [
+        {
+            "id": 1,
+            "title": "24/7 Emergency",
+            "description": "Round-the-clock emergency services with rapid response and expert care."
+        },
+        {
+            "id": 2,
+            "title": "Expert Doctors",
+            "description": "Highly qualified specialists across all major medical disciplines."
+        },
+        {
+            "id": 3,
+            "title": "Modern Facilities",
+            "description": "Advanced diagnostic and treatment technologies for accurate care."
+        },
+        {
+            "id": 4,
+            "title": "Patient-Centered Care",
+            "description": "Personalized treatment plans and compassionate support for every patient."
+        }
+    ],
+    "top_doctors": [
+        {
+            "id": 1,
+            "img": "https://randomuser.me/api/portraits/men/32.jpg",
+            "name": "Dr. John Doe",
+            "degree": "Chief Cardiologist",
+            "experience": "25+ years experience"
+        },
+        {
+            "id": 2,
+            "img": "https://randomuser.me/api/portraits/women/44.jpg",
+            "name": "Dr. Priya Sharma",
+            "degree": "Head of Pediatrics",
+            "experience": "Child health specialist"
+        },
+        {
+            "id": 3,
+            "img": "https://randomuser.me/api/portraits/men/85.jpg",
+            "name": "Dr. Alex Kim",
+            "degree": "Orthopedic Surgeon",
+            "experience": "Sports injury expert"
+        },
+        {
+            "id": 4,
+            "img": "https://randomuser.me/api/portraits/women/65.jpg",
+            "name": "Dr. Sara Lee",
+            "degree": "Neurologist",
+            "experience": "Brain & nerve care"
+        }
+    ],
+    "doctor_data": [
+        {
+            "id": 1,
+            "doctor_id": "DOC001",
+            "name": "Dr. John Smith",
+            "specialty": "Cardiology",
+            "post": "Chief Cardiologist",
+            "experience": "25 years",
+            "contact_number": "+1-555-0123",
+            "email": "john.smith@citycare.com",
+            "qualifications": "MD, FACC, PhD in Cardiology",
+            "department": "Cardiology Department",
+            "availability": "Monday-Friday, 9:00 AM - 5:00 PM"
+        },
+        {
+            "id": 2,
+            "doctor_id": "DOC002",
+            "name": "Dr. Priya Sharma",
+            "specialty": "Pediatrics",
+            "post": "Head of Pediatrics",
+            "experience": "18 years",
+            "contact_number": "+1-555-0124",
+            "email": "priya.sharma@citycare.com",
+            "qualifications": "MD, FAAP, Pediatric Specialist",
+            "department": "Pediatrics Department",
+            "availability": "Monday-Saturday, 8:00 AM - 4:00 PM"
+        },
+        {
+            "id": 3,
+            "doctor_id": "DOC003",
+            "name": "Dr. Alex Kim",
+            "specialty": "Orthopedics",
+            "post": "Senior Orthopedic Surgeon",
+            "experience": "22 years",
+            "contact_number": "+1-555-0125",
+            "email": "alex.kim@citycare.com",
+            "qualifications": "MD, MS Orthopedics, Sports Medicine",
+            "department": "Orthopedics Department",
+            "availability": "Tuesday-Saturday, 10:00 AM - 6:00 PM"
+        },
+        {
+            "id": 4,
+            "doctor_id": "DOC004",
+            "name": "Dr. Sara Lee",
+            "specialty": "Neurology",
+            "post": "Consultant Neurologist",
+            "experience": "16 years",
+            "contact_number": "+1-555-0126",
+            "email": "sara.lee@citycare.com",
+            "qualifications": "MD, DM Neurology, FAAN",
+            "department": "Neurology Department",
+            "availability": "Monday-Thursday, 9:00 AM - 5:00 PM"
+        },
+        {
+            "id": 5,
+            "doctor_id": "DOC005",
+            "name": "Dr. Michael Brown",
+            "specialty": "General Surgery",
+            "post": "Chief of Surgery",
+            "experience": "28 years",
+            "contact_number": "+1-555-0127",
+            "email": "michael.brown@citycare.com",
+            "qualifications": "MD, FACS, General Surgery",
+            "department": "Surgery Department",
+            "availability": "Monday-Friday, 7:00 AM - 3:00 PM"
+        },
+        {
+            "id": 6,
+            "doctor_id": "DOC006",
+            "name": "Dr. Emily Johnson",
+            "specialty": "Dermatology",
+            "post": "Senior Dermatologist",
+            "experience": "14 years",
+            "contact_number": "+1-555-0128",
+            "email": "emily.johnson@citycare.com",
+            "qualifications": "MD, Board Certified Dermatologist",
+            "department": "Dermatology Department",
+            "availability": "Monday-Wednesday, Friday, 10:00 AM - 4:00 PM"
+        },
+        {
+            "id": 7,
+            "doctor_id": "DOC007",
+            "name": "Dr. Robert Davis",
+            "specialty": "Oncology",
+            "post": "Medical Oncologist",
+            "experience": "19 years",
+            "contact_number": "+1-555-0129",
+            "email": "robert.davis@citycare.com",
+            "qualifications": "MD, FASCO, Hematology-Oncology",
+            "department": "Oncology Department",
+            "availability": "Tuesday-Saturday, 8:00 AM - 4:00 PM"
+        },
+        {
+            "id": 8,
+            "doctor_id": "DOC008",
+            "name": "Dr. Lisa Wang",
+            "specialty": "Gynecology",
+            "post": "Senior Gynecologist",
+            "experience": "21 years",
+            "contact_number": "+1-555-0130",
+            "email": "lisa.wang@citycare.com",
+            "qualifications": "MD, FACOG, Obstetrics & Gynecology",
+            "department": "Women's Health Department",
+            "availability": "Monday-Friday, 9:00 AM - 5:00 PM"
+        },
+        {
+            "id": 9,
+            "doctor_id": "DOC009",
+            "name": "Dr. James Wilson",
+            "specialty": "Emergency Medicine",
+            "post": "Emergency Department Head",
+            "experience": "15 years",
+            "contact_number": "+1-555-0131",
+            "email": "james.wilson@citycare.com",
+            "qualifications": "MD, FACEP, Emergency Medicine",
+            "department": "Emergency Department",
+            "availability": "24/7 Emergency Services"
+        },
+        {
+            "id": 10,
+            "doctor_id": "DOC010",
+            "name": "Dr. Rachel Green",
+            "specialty": "Radiology",
+            "post": "Chief Radiologist",
+            "experience": "17 years",
+            "contact_number": "+1-555-0132",
+            "email": "rachel.green@citycare.com",
+            "qualifications": "MD, ABR, Diagnostic Radiology",
+            "department": "Radiology Department",
+            "availability": "Monday-Friday, 8:00 AM - 6:00 PM"
+        }
+    ]
+}

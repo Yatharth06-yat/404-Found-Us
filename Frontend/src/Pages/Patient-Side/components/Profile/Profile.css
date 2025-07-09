@@ -125,7 +125,7 @@
             rgba(255, 255, 255, 0.06) 80%);
     opacity: 0;
     transition: opacity var(--transition-duration-slow) var(--transition-easing-ease-out-quad);
-    z-index: 2;
+     : 2;
     border-radius: var(--radius-xl);
     filter: blur(0.5px);
 }
@@ -244,7 +244,7 @@
     cursor: pointer;
     opacity: 0;
     position: absolute;
-    z-index: -1;
+     : -1;
     display: none;
 }
 
@@ -284,7 +284,7 @@
         box-shadow var(--transition-duration-normal) var(--transition-easing-ease-out-quad),
         background var(--transition-duration-normal) var(--transition-easing-ease-out-quad);
     position: relative;
-    z-index: 1;
+     : 1;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -300,7 +300,7 @@
         0 0 0 3px rgba(37, 99, 235, 0.2),
         0 2px 8px rgba(49, 130, 206, 0.10),
         0 1.5px 6px rgba(37, 99, 235, 0.07);
-    z-index: 2;
+     : 2;
 }
 
 .profile-edit-form input[disabled] {
@@ -393,7 +393,7 @@
     pointer-events: none;
     animation: rippleBtn 0.5s linear forwards;
     border-radius: var(--radius-full);
-    z-index: 2;
+     : 2;
     opacity: 0;
 }
 

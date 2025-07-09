@@ -53,7 +53,7 @@ a {
   opacity: 0;
   animation: fadeInScale 0.7s ease forwards;
   position: relative;
-  z-index: 100;
+   : 100;
 }
 
 .navbar:hover {
@@ -155,7 +155,7 @@ a {
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
     margin-top: var(--spacing-xs);
-    z-index: 999;
+     : 999;
     min-width: 180px;
   }
   .navbar-links-container.mobile.open ul {

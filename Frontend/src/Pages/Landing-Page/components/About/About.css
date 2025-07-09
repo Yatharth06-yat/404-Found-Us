@@ -87,7 +87,7 @@
     top: 6%;
     min-height: 70%;
     left: 3.75%;
-    z-index: 1;
+     : 1;
     background-color: rgb(29, 78, 216);
 }
 
@@ -127,7 +127,7 @@
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 0 0 0 2px rgb(29, 78, 216);
-    z-index: 1;
+     : 1;
 }
 
 .timeline-year {
