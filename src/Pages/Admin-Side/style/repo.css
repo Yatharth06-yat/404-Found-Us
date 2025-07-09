@@ -1,0 +1,23 @@
+.MM
+
+{padding: "2rem";
+    background: linear-gradient(#223046 5%, #2563eb 80%);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+} 
+.MM:hover {
+  background: linear-gradient(#223046 5%, #2563eb 80%);
+  }
+  h2{
+    color: linear-gradient(#6782b2 5%, #41338b 80%);
+  }
+  .ll{
+    width: 600px;
+  }
+ 

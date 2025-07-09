@@ -1,0 +1,243 @@
+/* =============================
+   Base Styles
+============================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 0;
+}
+
+.DoctorsPage-root,
+.PatientsPage-root {
+  padding: 2rem clamp(16px, 4%, 32px);
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  color: #083762;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+/* =============================
+   Form Styles
+============================= */
+.dp form input,
+.dp form select,
+.dp form textarea,
+.pp form input,
+.pp form select,
+.pp form textarea {
+  font-family: inherit;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+
+.dp form input:focus,
+.dp form select:focus,
+.dp form textarea:focus,
+.pp form input:focus,
+.pp form select:focus,
+.pp form textarea:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px #bee3f8;
+}
+
+.dp form button[type="submit"],
+.pp form button[type="submit"] {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient(#223046 2%, #2563eb 80%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dp form button[type="submit"]:hover,
+.pp form button[type="submit"]:hover {
+  background: #2563eb;
+}
+
+/* =============================
+   Doctor Cards
+============================= */
+.doctor-list,
+.patient-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+
+.doctor-card,
+.patient-card {
+  background: linear-gradient(90deg, #f1faff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 14px rgba(49, 130, 206, 0.08);
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #1a202c;
+  position: relative;
+}
+
+.doctor-card:hover,
+.patient-card:hover {
+  border-color: #3182ce;
+  box-shadow: 0 8px 24px rgba(49, 130, 206, 0.15);
+  transform: translateY(-4px);
+}
+
+.doctor-card strong,
+.patient-card strong {
+  font-size: 1.1rem;
+  color: #2c5282;
+  font-weight: 800;
+}
+
+.specialization {
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* =============================
+   Modals
+============================= */
+.doctor-popup .modal-overlay,
+.ppp .report-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 32, 44, 0.35);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content,
+.report-content {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(49, 130, 206, 0.2);
+  animation: popIn 0.3s ease-in-out;
+  position: relative;
+}
+
+.modal-content h3,
+.report-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #083762;
+  font-weight: 800;
+}
+
+.report-content pre {
+  white-space: pre-wrap;
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #2d3748;
+}
+
+.modal-content button,
+.report-content button,
+.back-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background: linear-gradient(#223046 2%, #2563eb 80%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-content button:hover,
+.report-content button:hover,
+.back-btn:hover {
+  background: #1d4ed8;
+}
+
+/* =============================
+   Delete Button
+============================= */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(#223046 5%, #2563eb 80%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.delete-btn:hover {
+  background: #c53030;
+}
+
+/* =============================
+   Animations
+============================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* =============================
+   Responsive Tweaks
+============================= */
+@media (max-width: 600px) {
+  .dp form input,
+  .dp form select,
+  .dp form textarea,
+  .pp form input,
+  .pp form select,
+  .pp form textarea {
+    width: 100%;
+  }
+
+  .modal-content,
+  .report-content {
+    padding: 1.5rem;
+  }
+
+  .doctor-card,
+  .patient-card {
+    font-size: 0.95rem;
+  }
+}

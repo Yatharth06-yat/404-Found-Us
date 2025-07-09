@@ -3,6 +3,7 @@ import './App.css'
 import Landing_Page from './Pages/Landing-Page/Landing-Page'
 import Patient_Side from './Pages/Patient-Side/Patient-Side'
 import Doctor_Side from './Pages/Doctor-Side/Doctor-Side'
+import Admin_Side from './Pages/Admin-Side/Admin-SIde'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/landing-page/*" element={<Landing_Page />} />
         <Route path="/patient-side/*" element={<Patient_Side />} />
         <Route path="/doctor-side/*" element={<Doctor_Side />} />
+        <Route path="/admin-side/*" element={<Admin_Side />} />
         <Route path="*" element={<Navigate to="/landing-page/" replace />} />
       </Routes>
     </Router>
