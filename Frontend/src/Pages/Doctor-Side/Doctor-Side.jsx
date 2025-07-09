@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import DashboardPage from "./components/Dashboard/Dashboard";
@@ -12,11 +12,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Doctor_Side() {
   const [user, setUser] = useState({
+    id: 1,
     name: "Dr. Jane Doe",
     email: "janedoe@gmail.com",
     avatarUrl: "",
     phone: "7898789878"
   });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/users/1")
+      .then(res => res.json())
+      .then(data => setUser(data));
+  }, []);
 
   function handleUpdateProfile(updated) {
     setUser({ ...user, ...updated });

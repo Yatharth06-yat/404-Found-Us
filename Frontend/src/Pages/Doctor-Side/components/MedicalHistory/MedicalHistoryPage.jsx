@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './MedicalHistoryPage.css';
 import MedicalTimeline from './MedicalTimeline';
-import initialMedicalHistory from '../../data/medicalHistory'; 
 
 export default function MedicalHistoryPage() {
   const [openId, setOpenId] = useState(null);
+  const [medicalHistory, setMedicalHistory] = useState([]);
 
-  const [medicalHistory] = useState(initialMedicalHistory);
+  useEffect(() => {
+    fetch("http://localhost:3000/medicalHistory")
+      .then(res => res.json())
+      .then(data => setMedicalHistory(data));
+  }, []);
 
   const handleViewPdf = (item) => {
     if (!item.report || !item.report.url) {

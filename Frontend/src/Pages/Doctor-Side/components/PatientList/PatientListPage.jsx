@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import initialPatients from "../../data/patients";
 import PatientTabs from "./PatientTabs";
 import PatientList from "./PatientList";
 import NotesModal from "./NotesModal";
@@ -13,10 +12,16 @@ const TABS = [
 export default function PatientListPage() {
   const [tab, setTab] = useState("active");
   const [isFading, setIsFading] = useState(false);
-  const [patients, setPatients] = useState(initialPatients);
+  const [patients, setPatients] = useState([]);
   const [displayed, setDisplayed] = useState([]);
   const [showNotes, setShowNotes] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/patients")
+      .then(res => res.json())
+      .then(data => setPatients(data));
+  }, []);
 
   useEffect(() => {
     setIsFading(true);
@@ -49,15 +54,22 @@ export default function PatientListPage() {
   };
 
   const handleSaveNotes = notes => {
-    setPatients(prev =>
-      prev.map(p =>
-        p.id === selectedId
-          ? { ...p, appointment: null, notes }
-          : p
-      )
+    const updatedPatients = patients.map(p =>
+      p.id === selectedId
+        ? { ...p, appointment: null, notes }
+        : p
     );
+    setPatients(updatedPatients);
     setShowNotes(false);
     setSelectedId(null);
+
+    // Update backend
+    const patientToUpdate = updatedPatients.find(p => p.id === selectedId);
+    fetch(`http://localhost:3000/patients/${selectedId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patientToUpdate)
+    });
   };
 
   const handleCancelNotes = () => {

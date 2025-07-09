@@ -1,4 +1,5 @@
-import React from "react";
+// HealthReportTrendCharts.jsx
+import React, { useEffect, useState } from "react";
 import {
     LineChart,
     Line,
@@ -8,7 +9,10 @@ import {
     Legend,
     ResponsiveContainer
 } from "recharts";
-import initialReports from "../../data/Reports";
+
+const palette = [
+    "#2563eb", "#ef4444", "#eab308", "#10b981", "#f43f5e", "#f59e42", "#6366f1", "#14b8a6", "#f472b6"
+];
 
 function getSingleReportTrendData(reports, type) {
     return reports
@@ -20,14 +24,18 @@ function getSingleReportTrendData(reports, type) {
         }));
 }
 
-const uniqueReportTypes = Array.from(new Set(initialReports.map(r => r.type)))
-    .filter(type => type !== "water");
+export default function HealthReportTrendCharts({ reportsData }) {
+    const [uniqueReportTypes, setUniqueReportTypes] = useState([]);
 
-const palette = [
-    "#2563eb", "#ef4444", "#eab308", "#10b981", "#f43f5e", "#f59e42", "#6366f1", "#14b8a6", "#f472b6"
-];
+    useEffect(() => {
+        if (reportsData && reportsData.length) {
+            setUniqueReportTypes(
+                Array.from(new Set(reportsData.map(r => r.type)))
+                    .filter(type => type !== "water")
+            );
+        }
+    }, [reportsData]);
 
-export default function HealthReportTrendCharts({ reportsData = initialReports }) {
     return (
         <section className="home-graphs-grid">
             {uniqueReportTypes.map((type, idx) => {

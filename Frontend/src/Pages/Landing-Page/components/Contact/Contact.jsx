@@ -1,9 +1,14 @@
-import { useState } from 'react';
-import './Contact.css'
-import doctorsData from "../../../../assets/doctors_data.json";
+import { useEffect, useState } from 'react';
+import './Contact.css';
 
 const Contact = () => {
-  const [doctors, setDoctors] = useState(doctorsData);
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/doctors")
+      .then(res => res.json())
+      .then(data => setDoctors(data));
+  }, []);
 
   return (
     <>

@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import patientFeedbackData from "../../data/patientFeedbackData";
-import peerCommendationsData from "../../data/peerCommendationsData";
+import React, { useEffect, useState } from "react";
 
 export default function DoctorFeedback() {
-  const [patientFeedback, setPatientFeedback] = useState(patientFeedbackData);
-  const [peerCommendations] = useState(peerCommendationsData);
-
+  const [patientFeedback, setPatientFeedback] = useState([]);
+  const [peerCommendations, setPeerCommendations] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFeedbackId, setSelectedFeedbackId] = useState(null);
   const [responseMessage, setResponseMessage] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:3000/patientFeedback")
+      .then(res => res.json())
+      .then(data => setPatientFeedback(data));
+    fetch("http://localhost:3000/peerCommendations")
+      .then(res => res.json())
+      .then(data => setPeerCommendations(data));
+  }, []);
 
   const displayMessage = (msg, type = "success") => {
     setMessage({ text: msg, type: type });
@@ -33,13 +39,14 @@ export default function DoctorFeedback() {
       displayMessage("Response cannot be empty.", "error");
       return;
     }
-    setPatientFeedback((prevFeedback) =>
-      prevFeedback.map((feedback) =>
-        feedback.id === selectedFeedbackId
-          ? { ...feedback, response: responseMessage.trim() }
-          : feedback
-      )
-    );
+    fetch(`http://localhost:3000/patientFeedback/${selectedFeedbackId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ response: responseMessage.trim() })
+    })
+      .then(() => fetch("http://localhost:3000/patientFeedback"))
+      .then(res => res.json())
+      .then(data => setPatientFeedback(data));
     displayMessage("Response submitted successfully!");
     setIsModalOpen(false);
     setResponseMessage("");
@@ -47,17 +54,19 @@ export default function DoctorFeedback() {
   };
 
   const handleFlagClick = (feedbackId) => {
-    setPatientFeedback((prevFeedback) =>
-      prevFeedback.map((feedback) => {
-        if (feedback.id === feedbackId) {
-          const newFlaggedStatus = !feedback.flagged;
-          const action = newFlaggedStatus ? "flagged" : "unflagged";
-          console.log(`Feedback ID ${feedbackId} ${action} for review.`);
-          displayMessage(`Comment ${action} successfully.`, newFlaggedStatus ? "warning" : "success");
-          return { ...feedback, flagged: newFlaggedStatus };
-        }
-        return feedback;
-      })
+    const feedback = patientFeedback.find(f => f.id === feedbackId);
+    const newFlaggedStatus = !feedback.flagged;
+    fetch(`http://localhost:3000/patientFeedback/${feedbackId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ flagged: newFlaggedStatus })
+    })
+      .then(() => fetch("http://localhost:3000/patientFeedback"))
+      .then(res => res.json())
+      .then(data => setPatientFeedback(data));
+    displayMessage(
+      `Comment ${newFlaggedStatus ? "flagged" : "unflagged"} successfully.`,
+      newFlaggedStatus ? "warning" : "success"
     );
   };
 

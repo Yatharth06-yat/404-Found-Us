@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import ProfilePage from "./components/Profile/Profile";
@@ -10,18 +10,32 @@ import './Patient-Side.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { buildReminders } from "./utils/reminder";
-import initialAppointments from "./data/appointments";
-import initialPrescriptions from "./data/prescriptions";
-import initialBloodReports from "./data/Reports";
-import initialMedicalHistory from "./data/medicalHistory";
 import Footer from './components/footer/footer';
 
 function Patient_Side() {
-  const [user, setUser] = useState({ name: "JaneDoe", email: "janedoe@gmail.com", avatarUrl: "", phone: "" });
-  const [appointments, setAppointments] = useState(initialAppointments);
-  const [prescriptions, setPrescriptions] = useState(initialPrescriptions);
-  const [bloodReports, setBloodReports] = useState(initialBloodReports);
-  const [medicalHistory, setMedicalHistory] = useState(initialMedicalHistory);
+  const [user, setUser] = useState({ id: 1, name: "JaneDoe", email: "janedoe@gmail.com", avatarUrl: "", phone: "" });
+  const [appointments, setAppointments] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
+  const [bloodReports, setBloodReports] = useState([]);
+  const [medicalHistory, setMedicalHistory] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/users/1")
+      .then(res => res.json())
+      .then(data => setUser(data));
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptions(data));
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReports(data));
+    fetch("http://localhost:3000/medicalHistory")
+      .then(res => res.json())
+      .then(data => setMedicalHistory(data));
+  }, []);
 
   const reminders = buildReminders(appointments);
 

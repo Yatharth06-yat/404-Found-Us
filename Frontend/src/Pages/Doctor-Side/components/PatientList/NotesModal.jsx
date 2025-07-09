@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PatientListPage";
+import "./PatientListPage.css";
 
 export default function NotesModal({ onSave, onCancel }) {
   const [notes, setNotes] = useState("");

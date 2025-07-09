@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdBloodtype, MdOutlineEvent, MdReport, MdAlarm } from "react-icons/md";
 
-export default function StatsCards({ appointments, prescriptions, bloodReports }) {
+export default function StatsCards() {
+  const [appointments, setAppointments] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
+  const [bloodReports, setBloodReports] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptions(data));
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReports(data));
+  }, []);
+
   const today = new Date();
   const activePrescriptions = prescriptions.filter(p => p.status === "active").length;
-
   const upcomingAppointments = appointments
     .filter(a => new Date(a.date) >= today && a.status === "upcoming")
     .sort((a, b) => new Date(a.date) - new Date(b.date));
-
   const nextAppointment = upcomingAppointments[0];
 
   let nextAppointmentDisplayValue;

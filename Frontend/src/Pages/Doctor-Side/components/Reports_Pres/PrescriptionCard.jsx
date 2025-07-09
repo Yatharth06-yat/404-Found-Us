@@ -1,56 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./ReportsPage.css";
+import Sidebar from "./Sidebar";
+import SearchFilterBar from "./SearchFilterBar";
+import PrescriptionCard from "./PrescriptionCard";
+import ReportQuickViewModal from "./ReportQuickViewModal";
+import Modal from "./Modal";
+import ReportCard from "./ReportCard";
+import { BsCapsule } from "react-icons/bs";
+import { MdBloodtype, MdHealing, MdOutlineTimeline, MdOpacity, MdWbSunny } from "react-icons/md";
 
-export default function PrescriptionCard({ prescription }) {
-  const [refillPercent, setRefillPercent] = useState(0);
-  const progress = Math.round(
-    (prescription.medicines.reduce((acc, m) => acc + (m.taken || 0), 0) /
-      prescription.medicines.reduce((acc, m) => acc + m.duration, 0)) * 100
+const iconMap = {
+  MdBloodtype,
+  MdHealing,
+  MdOutlineTimeline,
+  MdOpacity,
+  MdWbSunny,
+  BsCapsule,
+};
+
+const prescriptionStatuses = [
+  { key: "active", label: "Active" },
+  { key: "expired", label: "Expired" },
+];
+
+const reportTypes = [
+  { key: "blood", label: "Blood Test", icon: "MdBloodtype" },
+  { key: "liver", label: "Liver Function", icon: "MdHealing" },
+  { key: "imaging", label: "Imaging", icon: "MdOutlineTimeline" },
+];
+
+export default function ReportsPage() {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
+  const [activeSection, setActiveSection] = useState("home");
+  const [filters, setFilters] = useState({ type: null, prescriptionStatus: null });
+  const [search, setSearch] = useState("");
+  const [quickViewReport, setQuickViewReport] = useState(null);
+
+  const [bloodReports, setBloodReports] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReports(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptions(data));
+  }, []);
+
+  const filteredReports = bloodReports.filter(r =>
+    (!filters.type || r.type === filters.type) &&
+    (r.name.toLowerCase().includes(search.toLowerCase()) ||
+      r.doctor.toLowerCase().includes(search.toLowerCase()) ||
+      r.date.includes(search))
   );
-  const handleRefill = () => {
-    setRefillPercent(prev => Math.min(prev + 20, 100));
-  };
+
+  const filteredPrescriptions = prescriptions.filter(p =>
+    (!filters.prescriptionStatus || p.status === filters.prescriptionStatus) &&
+    (p.doctor.toLowerCase().includes(search.toLowerCase()) ||
+      p.date.includes(search) ||
+      p.medicines.some(med => med.name.toLowerCase().includes(search.toLowerCase())))
+  );
+
   return (
-    <div className="prescription-card">
-      <div className="prescription-title-row">
-        <img src={prescription.doctorPhoto} alt={prescription.doctor} className="doctor-photo" />
-        <div>
-          <div className="prescription-title">{prescription.doctor}</div>
-          <div className="prescription-date">{prescription.date}</div>
-        </div>
-        <div className={`prescription-status ${prescription.status}`}>{prescription.status.toUpperCase()}</div>
-      </div>
-      <div className="prescription-info-row">
-        <div className="prescription-medicines">
-          <b>Medicines:</b>
-          <ul>
-            {prescription.medicines.map((m, i) => (
-              <li key={i}>
-                <span className="med-icon">{m.icon}</span>
-                {m.name} {m.dosage}
-                <span className="medicine-duration-badge">{m.duration} days</span>
-                <span className="medicine-progress">{m.taken || 0}/{m.duration} taken</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="prescription-details">
-          <div className="prescription-notes"><b>Notes:</b> {prescription.notes}</div>
-          {prescription.refillAvailable && (
-            <>
-              <button className="refill-btn" onClick={handleRefill}>Refill Request</button>
-              <div style={{ marginTop: "0.5rem", color: "#2563eb" }}>
-                Refill Progress: <b>{refillPercent}%</b>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-      <div className="prescription-progress-bar">
-        <div className="progress-bar-track">
-          <div className="progress-bar-inner" style={{ width: `${progress}%` }} />
-        </div>
-        <span className="progress-label">{progress}% course completed</span>
-      </div>
+    <div className="reports-home-root">
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        setCollapsed={setSidebarCollapsed}
+        active={activeSection}
+        setActive={setActiveSection}
+      />
+      <main className="home-main">
+        {(activeSection === "home" || activeSection === "reports") && (
+          <section className="section-card">
+            <h2 className="gradient-heading">
+              <span className="heading-dark">Reports</span>
+              <span className="heading-blue">&nbsp;& Prescriptions</span>
+            </h2>
+            <SearchFilterBar search={search} setSearch={setSearch} />
+            <div className="reports-list">
+              {filteredReports.map(report => (
+                <ReportCard
+                  key={report.id}
+                  report={report}
+                  onQuickView={setQuickViewReport}
+                  iconMap={iconMap}
+                  reportTypes={reportTypes}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+        {(activeSection === "home" || activeSection === "prescriptions") && (
+          <section className="section-card">
+            <h2 className="gradient-heading">
+              <span className="heading-dark">Prescriptions</span>
+            </h2>
+            <div className="prescriptions-list">
+              {filteredPrescriptions.map(p => (
+                <PrescriptionCard
+                  key={p.id}
+                  prescription={p}
+                  iconMap={iconMap}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+      </main>
+      <ReportQuickViewModal
+        report={quickViewReport}
+        onClose={() => setQuickViewReport(null)}
+        iconMap={iconMap}
+        reportTypes={reportTypes}
+      />
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// ReportsPage.jsx
+import React, { useState, useEffect } from "react";
 import "./ReportsPage.css";
 import Sidebar from "./Sidebar";
 import SearchFilterBar from "./SearchFilterBar";
@@ -6,8 +7,6 @@ import PrescriptionCard from "./PrescriptionCard";
 import ReportQuickViewModal from "./ReportQuickViewModal";
 import Modal from "./Modal";
 import ReportCard from "./ReportCard";
-import bloodReports from "../../data/Reports";
-import prescriptions from "../../data/prescriptions";
 import { BsCapsule } from "react-icons/bs";
 import {
   MdBloodtype, MdHealing, MdOutlineTimeline, MdOpacity, MdWbSunny
@@ -39,6 +38,18 @@ export default function ReportsPage() {
   const [filters, setFilters] = useState({ type: null, prescriptionStatus: null });
   const [search, setSearch] = useState("");
   const [quickViewReport, setQuickViewReport] = useState(null);
+
+  const [bloodReports, setBloodReports] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReports(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptions(data));
+  }, []);
 
   const filteredReports = bloodReports.filter(r =>
     (!filters.type || r.type === filters.type) &&

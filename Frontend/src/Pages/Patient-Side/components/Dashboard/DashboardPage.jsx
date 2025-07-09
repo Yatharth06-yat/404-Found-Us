@@ -1,9 +1,7 @@
-import React from "react";
+// DashboardPage.jsx
+import React, { useEffect, useState } from "react";
 import "./DashboardPage.css";
 import defaultAvatar from '../../assets/istockphoto-610003972-612x612.jpg';
-import initialAppointments from "../../data/appointments";
-import initialPrescriptions from "../../data/prescriptions";
-import initialBloodReports from "../../data/Reports";
 import DashboardGreeting from "./DashboardGreeting";
 import NotificationBell from "./NotificationBell";
 import DailyReminders from "./DailyReminders";
@@ -23,10 +21,23 @@ export default function DashboardPage({
   user = { name: "User", avatarUrl: defaultAvatar },
   alerts = [],
 }) {
+  const [appointmentsData, setAppointmentsData] = useState([]);
+  const [prescriptionsData, setPrescriptionsData] = useState([]);
+  const [bloodReportsData, setBloodReportsData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointmentsData(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptionsData(data));
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReportsData(data));
+  }, []);
+
   const selectedQuote = healthQuotes[Math.floor(Math.random() * healthQuotes.length)];
-  const appointmentsData = initialAppointments;
-  const prescriptionsData = initialPrescriptions;
-  const bloodReportsData = initialBloodReports;
 
   return (
     <>

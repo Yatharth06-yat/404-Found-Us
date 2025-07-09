@@ -1,35 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeaveSummary from "./LeaveSummary";
 import LeaveList from "./LeaveList";
 import LeaveModal from "./LeaveModal";
 
-
 export default function DoctorLeaveManagement() {
-    const [leaveBalance] = useState({
+    const [leaveBalance, setLeaveBalance] = useState({
         annual: 15,
         sick: 10,
         casual: 5,
     });
 
-    const [leaves, setLeaves] = useState([
-        {
-            id: 1,
-            type: "Annual Leave",
-            startDate: "2025-08-10",
-            endDate: "2025-08-15",
-            reason: "Family vacation",
-            status: "approved",
-        },
-        {
-            id: 2,
-            type: "Sick Leave",
-            startDate: "2025-07-20",
-            endDate: "2025-07-20",
-            reason: "Sudden illness",
-            status: "pending",
-        },
-    ]);
-
+    const [leaves, setLeaves] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [form, setForm] = useState({
         type: "Annual Leave",
@@ -38,6 +19,12 @@ export default function DoctorLeaveManagement() {
         reason: "",
     });
     const [msg, setMsg] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:3000/leaves")
+            .then(res => res.json())
+            .then(data => setLeaves(data));
+    }, []);
 
     const resetForm = () => {
         setForm({
@@ -76,11 +63,17 @@ export default function DoctorLeaveManagement() {
             return;
         }
         const newLeave = {
-            id: leaves.length + 1,
             ...form,
             status: "pending",
         };
-        setLeaves([...leaves, newLeave]);
+        fetch("http://localhost:3000/leaves", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newLeave)
+        })
+            .then(() => fetch("http://localhost:3000/leaves"))
+            .then(res => res.json())
+            .then(data => setLeaves(data));
         setMsg("Leave application submitted successfully!");
         setTimeout(() => setMsg(""), 3000);
         resetForm();

@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AppointmentsPage.css";
 import { toast } from 'react-toastify';
 import AppointmentsToolbar from "./AppointmentsToolbar";
 import AppointmentModal from "./AppointmentModal";
 import AppointmentList from "./AppointmentList";
-import initialAppointments from "../../data/appointments";
 
 export default function AppointmentsPage() {
   const [tab, setTab] = useState("upcoming");
   const [fading, setFading] = useState(false);
 
-  const [appointments, setAppointments] = useState(initialAppointments);
-
+  const [appointments, setAppointments] = useState([]);
   const availableDoctors = [
     { doctor: "Dr. Smith", timings: "10:00 AM - 2:00 PM" },
     { doctor: "Dr. Patel", timings: "2:00 PM - 6:00 PM" },
@@ -28,6 +26,12 @@ export default function AppointmentsPage() {
     notes: "",
     status: "upcoming"
   });
+
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+  }, []);
 
   const isToday = (dateStr) => {
     const today = new Date().toISOString().split("T")[0];
@@ -74,13 +78,20 @@ export default function AppointmentsPage() {
 
   const handleCreateAppointment = (e) => {
     e.preventDefault();
-    setAppointments([
-      ...appointments,
-      {
-        ...newAppointment,
-        id: appointments.length + 1
-      }
-    ]);
+    const appointmentToAdd = {
+      ...newAppointment,
+      status: "upcoming"
+    };
+    fetch("http://localhost:3000/appointments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(appointmentToAdd)
+    })
+      .then(() =>
+        fetch("http://localhost:3000/appointments")
+          .then(res => res.json())
+          .then(data => setAppointments(data))
+      );
     setShowModal(false);
     setNewAppointment({
       date: "",

@@ -7,7 +7,6 @@ export default function DoctorsPage() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [showActionChoices, setShowActionChoices] = useState(false);
   const [showPaymentFile, setShowPaymentFile] = useState(false);
-
   const [newDoctor, setNewDoctor] = useState({
     name: "",
     age: "",
@@ -18,47 +17,14 @@ export default function DoctorsPage() {
   });
 
   useEffect(() => {
-    const savedDoctors = localStorage.getItem("doctors");
-    const defaultDoctors = [
-      {
-        name: "Dr. Arjun Malhotra",
-        age: 32,
-        gender: "Male",
-        education: "MBBS, MD (General Medicine)",
-        specialization: "General Physician",
-        bio: "Advised to bring previous reports after a general checkup."
-      },
-      {
-        name: "Dr. Meera Das",
-        age: 28,
-        gender: "Female",
-        education: "MBBS, MD (General Medicine)",
-        specialization: "General Physician",
-        bio: "Annual physical checkup recommended."
-      },
-      {
-        name: "Dr. Kunal Rathi",
-        age: 40,
-        gender: "Male",
-        education: "BDS, MDS (Dentistry)",
-        specialization: "Dentist",
-        bio: "Dental cleaning performed. Avoid food before visit."
-      }
-    ];
-
-    if (savedDoctors) {
-      const parsed = JSON.parse(savedDoctors);
-      setDoctors(parsed);
-      setSelectedDoctor(parsed[0]); // default selection
-    } else {
-      setDoctors(defaultDoctors);
-      setSelectedDoctor(defaultDoctors[0]); // default selection
-    }
+    fetch("http://localhost:3000/doctors")
+      .then(res => res.json())
+      .then(data => {
+        setDoctors(data);
+        setSelectedDoctor(data[0]);
+      })
+      .catch(() => {});
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("doctors", JSON.stringify(doctors));
-  }, [doctors]);
 
   const handleAddDoctor = (e) => {
     e.preventDefault();
@@ -72,10 +38,16 @@ export default function DoctorsPage() {
       specialization: "",
       bio: ""
     });
+    fetch("http://localhost:3000/doctors", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newDoctor)
+    });
   };
 
   const handleDelete = (indexToDelete) => {
     if (window.confirm("Are you sure you want to delete this doctor?")) {
+      const doctorToDelete = doctors[indexToDelete];
       const updated = doctors.filter((_, i) => i !== indexToDelete);
       setDoctors(updated);
       if (selectedDoctor && doctors[indexToDelete] === selectedDoctor) {
@@ -83,6 +55,9 @@ export default function DoctorsPage() {
         setShowActionChoices(false);
         setShowPaymentFile(false);
       }
+      fetch(`http://localhost:3000/doctors/${doctorToDelete.id}`, {
+        method: "DELETE"
+      });
     }
   };
 
@@ -102,7 +77,6 @@ export default function DoctorsPage() {
         <>
           <div className="dp">
             <h2>Doctor Directory</h2>
-
             <form onSubmit={handleAddDoctor} style={{ marginBottom: "24px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "8px" }}>
                 <input
@@ -156,11 +130,10 @@ export default function DoctorsPage() {
               <button type="submit">Add Doctor</button>
             </form>
           </div>
-
           <div className="doctor-list">
             {doctors.map((doctor, index) => (
               <div
-                key={index}
+                key={doctor.id || index}
                 className="doctor-card"
                 onClick={() => handleDoctorClick(doctor)}
               >
@@ -180,7 +153,6 @@ export default function DoctorsPage() {
               </div>
             ))}
           </div>
-
           {showActionChoices && selectedDoctor && (
             <div className="doctor-popup">
               <div className="modal-overlay" onClick={() => setShowActionChoices(false)}>

@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./DashboardPage.css";
 import defaultAvatar from '../../assets/istockphoto-610003972-612x612.jpg';
-import initialAppointments from "../../data/appointments";
-import initialPrescriptions from "../../data/prescriptions";
-import initialBloodReports from "../../data/Reports";
 import DashboardGreeting from "./DashboardGreeting";
 import NotificationBell from "./NotificationBell";
 import DailyReminders from "./DailyReminders";
@@ -23,10 +20,23 @@ export default function DashboardPage({
   user = { name: "User", avatarUrl: defaultAvatar },
   alerts = [],
 }) {
+  const [appointments, setAppointments] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
+  const [bloodReports, setBloodReports] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+    fetch("http://localhost:3000/prescriptions")
+      .then(res => res.json())
+      .then(data => setPrescriptions(data));
+    fetch("http://localhost:3000/reports")
+      .then(res => res.json())
+      .then(data => setBloodReports(data));
+  }, []);
+
   const selectedQuote = healthQuotes[Math.floor(Math.random() * healthQuotes.length)];
-  const appointmentsData = initialAppointments;
-  const prescriptionsData = initialPrescriptions;
-  const bloodReportsData = initialBloodReports;
 
   return (
     <>
@@ -37,22 +47,22 @@ export default function DashboardPage({
         <div className="home-right">
           <NotificationBell
             alerts={alerts}
-            appointments={appointmentsData}
-            prescriptions={prescriptionsData}
+            appointments={appointments}
+            prescriptions={prescriptions}
           />
-          <DailyReminders prescriptions={prescriptionsData} />
+          <DailyReminders prescriptions={prescriptions} />
         </div>
       </div>
       <StatsCards
-        appointments={appointmentsData}
-        prescriptions={prescriptionsData}
-        bloodReports={bloodReportsData}
+        appointments={appointments}
+        prescriptions={prescriptions}
+        bloodReports={bloodReports}
       />
       <div className="health-summary-container">
-        <HealthSummaryCard bloodReports={bloodReportsData} />
+        <HealthSummaryCard bloodReports={bloodReports} />
       </div>
       <HealthTrackingSection />
-      <HealthTrendsSection reportsData={bloodReportsData} />
+      <HealthTrendsSection reportsData={bloodReports} />
     </>
   );
 }

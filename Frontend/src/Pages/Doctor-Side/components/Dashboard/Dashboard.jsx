@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import defaultDoctorAvatar from '../../assets/istockphoto-2077095666-612x612.jpg';
-import patientsData from "../../data/patients";
-import DoctorDashboardGreeting from "./DashboardGreeting";
-import DoctorNotificationBell from "./NotificationBell";
+import DoctorDashboardGreeting from "./DoctorDashboardGreeting";
+import DoctorNotificationBell from "./DoctorNotificationBell";
 
 const doctorQuotes = [
   "The art of medicine consists of amusing the patient while nature cures the disease.",
@@ -23,7 +22,7 @@ function TopAppointmentsList({ appointments }) {
           key={app.id}
           className={`appointment-box${app.isNew ? " new-appointment-box" : ""}`}
         >
-          <div className="appointment-name">{app.name}</div>
+          <div className="appointment-name">{app.patientName}</div>
           <div className="appointment-time">{app.formatted_time}</div>
           {app.isNew && <span className="appointment-new-badge">New</span>}
         </div>
@@ -33,15 +32,22 @@ function TopAppointmentsList({ appointments }) {
 }
 
 export default function DoctorDashboardPage({ user, alerts = [] }) {
+  const [appointments, setAppointments] = useState([]);
   const quote = doctorQuotes[Math.floor(Math.random() * doctorQuotes.length)];
 
-  const upcomingAppointments = patientsData
-    .filter(p => p.appointment && p.appointment.active)
-    .map(p => ({
-      id: p.id,
-      name: p.name,
-      formatted_time: p.appointment.formatted_time,
-      isNew: p.appointment.isNew || false,
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+  }, []);
+
+  const upcomingAppointments = appointments
+    .filter(a => a.active)
+    .map(a => ({
+      id: a.id,
+      patientName: a.patientName,
+      formatted_time: a.formatted_time,
+      isNew: a.isNew || false,
     }))
     .slice(0, 3);
 

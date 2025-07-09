@@ -1,24 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AppointmentsPage.css";
 import { toast } from 'react-toastify';
 import AppointmentsToolbar from "./AppointmentsToolbar";
 import AppointmentModal from "./AppointmentModal";
 import AppointmentList from "./AppointmentList";
-import initialAppointments from "../../data/appointments";
 
 export default function AppointmentsPage() {
   const [tab, setTab] = useState("upcoming");
   const [fading, setFading] = useState(false);
-
-  const [appointments, setAppointments] = useState(initialAppointments);
-
-  const availableDoctors = [
-    { doctor: "Dr. Smith", timings: "10:00 AM - 2:00 PM" },
-    { doctor: "Dr. Patel", timings: "2:00 PM - 6:00 PM" },
-    { doctor: "Dr. Lee", timings: "11:30 AM - 4:00 PM" },
-    { doctor: "Dr. Johnson", timings: "9:00 AM - 12:00 PM" }
-  ];
-
+  const [appointments, setAppointments] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [newAppointment, setNewAppointment] = useState({
     date: "",
@@ -28,6 +18,20 @@ export default function AppointmentsPage() {
     notes: "",
     status: "upcoming"
   });
+
+  const availableDoctors = [
+    { doctor: "Dr. Smith", timings: "10:00 AM - 2:00 PM" },
+    { doctor: "Dr. Patel", timings: "2:00 PM - 6:00 PM" },
+    { doctor: "Dr. Lee", timings: "11:30 AM - 4:00 PM" },
+    { doctor: "Dr. Johnson", timings: "9:00 AM - 12:00 PM" }
+  ];
+
+  useEffect(() => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data))
+      .catch(() => {});
+  }, []);
 
   const isToday = (dateStr) => {
     const today = new Date().toISOString().split("T")[0];
@@ -72,25 +76,31 @@ export default function AppointmentsPage() {
     return new Date(b.date) - new Date(a.date);
   });
 
+  const fetchAppointments = () => {
+    fetch("http://localhost:3000/appointments")
+      .then(res => res.json())
+      .then(data => setAppointments(data));
+  };
+
   const handleCreateAppointment = (e) => {
     e.preventDefault();
-    setAppointments([
-      ...appointments,
-      {
-        ...newAppointment,
-        id: appointments.length + 1
-      }
-    ]);
-    setShowModal(false);
-    setNewAppointment({
-      date: "",
-      time: "",
-      doctor: "",
-      purpose: "",
-      notes: "",
-      status: "upcoming"
+    fetch("http://localhost:3000/appointments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newAppointment)
+    }).then(() => {
+      fetchAppointments();
+      setShowModal(false);
+      setNewAppointment({
+        date: "",
+        time: "",
+        doctor: "",
+        purpose: "",
+        notes: "",
+        status: "upcoming"
+      });
+      toast.success("Appointment created!");
     });
-    toast.success("Appointment created!");
   };
 
   return (
@@ -100,7 +110,6 @@ export default function AppointmentsPage() {
         onTabSwitch={handleTabSwitch}
         onNew={() => setShowModal(true)}
       />
-
       <AppointmentModal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -109,7 +118,6 @@ export default function AppointmentsPage() {
         setNewAppointment={setNewAppointment}
         availableDoctors={availableDoctors}
       />
-
       <AppointmentList
         appointments={sortedAppointments}
         isToday={isToday}

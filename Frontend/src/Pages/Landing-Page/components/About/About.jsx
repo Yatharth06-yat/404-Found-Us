@@ -1,8 +1,15 @@
-import React from 'react';
-import topDoctors from "../../../../assets/topDoctors.json";
+import React, { useEffect, useState } from 'react';
 import "./About.css";
 
 const About = () => {
+    const [topDoctors, setTopDoctors] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/topDoctors")
+            .then(res => res.json())
+            .then(data => setTopDoctors(data));
+    }, []);
+
     return (
         <>
             <div className="about-container">

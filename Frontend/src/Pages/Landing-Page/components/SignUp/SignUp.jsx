@@ -9,36 +9,57 @@ function SignUp() {
     const { register: registerLogin, handleSubmit: handleSubmitLogin, formState: { errors: errorsLogin }, reset: resetLoginForm } = useForm();
     const { register: registerSignup, handleSubmit: handleSubmitSignup, formState: { errors: errorsSignup }, reset: resetSignupForm } = useForm();
 
-
     useEffect(() => {
         resetLoginForm();
         resetSignupForm();
         setMessage('');
     }, [isLogin, resetLoginForm, resetSignupForm]);
 
-    const onLoginSubmit = (data) => {
+    const onLoginSubmit = async (data) => {
         setMessage('');
-        console.log('Login form submitted!', data);
-
-        if (data.loginEmail === 'user@example.com' && data.loginPassword === 'password123') {
-            setMessage('Login successful! (This is a client-side mock)');
-        } else {
-            setMessage('Invalid email or password (This is a client-side mock).');
+        try {
+            const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(data.loginEmail)}`);
+            const users = await res.json();
+            const user = users[0];
+            if (user && user.password === data.loginPassword) {
+                setMessage('Login successful!');
+            } else {
+                setMessage('Invalid email or password.');
+            }
+        } catch (err) {
+            setMessage('Login failed. Please try again.');
         }
     };
 
-    const onSignupSubmit = (data) => {
+    const onSignupSubmit = async (data) => {
         setMessage('');
-        console.log('Signup form submitted!', data);
-
         if (data.signupPassword !== data.confirmPassword) {
             setMessage('Passwords do not match.');
             return;
         }
-
-        setMessage('Signup successful! (This is a client-side mock)');
-        console.log('Mock User Registered:', { name: data.signupName, email: data.signupEmail });
-        setIsLogin(true);
+        try {
+            // Check if email already exists
+            const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(data.signupEmail)}`);
+            const existing = await res.json();
+            if (existing.length > 0) {
+                setMessage('Email already registered.');
+                return;
+            }
+            // Register new user
+            await fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: data.signupName,
+                    email: data.signupEmail,
+                    password: data.signupPassword
+                })
+            });
+            setMessage('Signup successful!');
+            setIsLogin(true);
+        } catch (err) {
+            setMessage('Signup failed. Please try again.');
+        }
     };
 
     return (

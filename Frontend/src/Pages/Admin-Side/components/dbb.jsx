@@ -8,10 +8,14 @@ export default function Dashboard() {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    const savedPatients = JSON.parse(localStorage.getItem("patients")) || [];
-    const savedDoctors = JSON.parse(localStorage.getItem("doctors")) || [];
-    setPatients(savedPatients);
-    setDoctors(savedDoctors);
+    fetch("http://localhost:3000/patients")
+      .then(response => response.json())
+      .then(data => setPatients(data))
+      .catch(error => {});
+    fetch("http://localhost:3000/doctors")
+      .then(response => response.json())
+      .then(data => setDoctors(data))
+      .catch(error => {});
   }, []);
 
   const stats = {
@@ -26,7 +30,6 @@ export default function Dashboard() {
   return (
     <div className="dashboard-root">
       <h1>Analytics Dashboard</h1>
-
       <div className="stats-grid">
         <StatCard label="Total Patients" value={stats.totalPatients} color="#2563eb" />
         <StatCard label="Total Doctors" value={stats.totalDoctors} color="#10b981" />
@@ -35,7 +38,6 @@ export default function Dashboard() {
         <StatCard label="Male Doctors" value={stats.maleDoctors} color="#0ea5e9" />
         <StatCard label="Female Doctors" value={stats.femaleDoctors} color="#f43f5e" />
       </div>
-
       <Charts patients={patients} doctors={doctors} />
     </div>
   );

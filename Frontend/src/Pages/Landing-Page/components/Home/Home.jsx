@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import "./Home.css";
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import cardsData from "../../../../assets/Cards.json";
 
 const Home = () => {
   const [submitted, setSubmitted] = useState(false);
-  
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/cards")
+      .then(res => res.json())
+      .then(data => setCardsData(data));
+  }, []);
+
   const {
     register,
     handleSubmit,
