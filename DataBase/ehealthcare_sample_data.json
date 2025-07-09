@@ -1,0 +1,129 @@
+{
+    "appointments": [
+        {
+            "appointment_id": 1,
+            "appointment_date": "2025-07-05",
+            "appointment_time": "10:00:00",
+            "doctor_name": "Dr. Smith",
+            "purpose": "General Checkup",
+            "notes": "Bring previous reports.",
+            "status": "upcoming"
+        },
+        {
+            "appointment_id": 2,
+            "appointment_date": "2025-07-02",
+            "appointment_time": "23:00:00",
+            "doctor_name": "Dr. Johnson",
+            "purpose": "General Checkup",
+            "notes": "Annual physical.",
+            "status": "upcoming"
+        }
+    ],
+    "available_doctors": [
+        {
+            "doctor_id": 1,
+            "doctor_name": "Dr. Smith",
+            "timings": "10:00 AM - 2:00 PM"
+        },
+        {
+            "doctor_id": 2,
+            "doctor_name": "Dr. Patel",
+            "timings": "2:00 PM - 6:00 PM"
+        }
+    ],
+    "prescriptions": [
+        {
+            "prescription_id": 201,
+            "prescription_date": "2025-07-01",
+            "doctor_name": "Dr. Priya Sharma",
+            "doctor_photo": "https://randomuser.me/api/portraits/women/44.jpg",
+            "status": "active",
+            "notes": "Strictly follow the medicine schedule.",
+            "refill_available": true
+        }
+    ],
+    "prescription_medicines": [
+        {
+            "id": 1,
+            "prescription_id": 201,
+            "medicine_name": "Paracetamol",
+            "dosage": "500mg",
+            "duration": 5,
+            "taken": 3
+        }
+    ],
+    "reports": [
+        {
+            "report_id": 1,
+            "report_name": "Complete Blood Count",
+            "report_type": "blood",
+            "report_date": "2025-06-20",
+            "doctor_name": "Dr. Priya Sharma",
+            "is_critical": false,
+            "status": "Normal",
+            "notes": "Patient should monitor hydration levels.",
+            "value": 13.2,
+            "normal_min": 12.0,
+            "normal_max": 16.0
+        }
+    ],
+    "medical_history": [
+        {
+            "history_id": 1,
+            "visit_date": "2025-06-28",
+            "reason": "Fever",
+            "doctor_name": "Dr. Sharma",
+            "prescription": "Paracetamol",
+            "notes": null
+        }
+    ],
+    "medical_reports": [
+        {
+            "report_id": 1,
+            "history_id": 1,
+            "file_name": "report1.pdf",
+            "file_url": "https://morth.nic.in/sites/default/files/dd12-13_0.pdf",
+            "uploaded_at": "2025-06-28 09:00:00"
+        }
+    ],
+    "patients_list": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "appointment_time": "2025-07-07 10:00:00",
+            "status": "Active",
+            "is_new": false
+        }
+    ],
+    "cards": [
+        {
+            "id": 1,
+            "title": "24/7 Emergency",
+            "description": "Round-the-clock emergency services with rapid response and expert care."
+        }
+    ],
+    "top_doctors": [
+        {
+            "id": 1,
+            "img": "https://randomuser.me/api/portraits/men/32.jpg",
+            "name": "Dr. John Doe",
+            "degree": "Chief Cardiologist",
+            "experience": "25+ years experience"
+        }
+    ],
+    "doctor_data": [
+        {
+            "id": 1,
+            "doctor_id": "DOC001",
+            "name": "Dr. John Smith",
+            "specialty": "Cardiology",
+            "post": "Chief Cardiologist",
+            "experience": "25 years",
+            "contact_number": "+1-555-0123",
+            "email": "john.smith@citycare.com",
+            "qualifications": "MD, FACC, PhD in Cardiology",
+            "department": "Cardiology Department",
+            "availability": "Monday-Friday, 9:00 AM - 5:00 PM"
+        }
+    ]
+}

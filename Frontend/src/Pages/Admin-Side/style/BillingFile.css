@@ -1,0 +1,61 @@
+/* =============================
+   Base Styles
+============================= */
+
+/* =============================
+   Button Style - .bpl
+============================= */
+.bpl {
+  background: linear-gradient(135deg, #223046 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  margin: 23px;
+}
+
+.bpl:hover {
+  background: linear-gradient(135deg, #1c2639 0%, #1e40af 100%);
+  box-shadow: 0 6px 14px rgba(30, 64, 175, 0.3);
+  transform: translateY(-2px);
+}
+
+/* =============================
+   Card or Container Style - .lk
+============================= */
+.lk {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  background: #f0faff;
+  border: 2px solid #e0f2fe;
+  padding: 1.2rem;
+  color: #0f172a;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(13, 42, 76, 0.1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.lk:hover {
+  box-shadow: 0 8px 24px rgba(13, 42, 76, 0.2);
+  transform: translateY(-4px);
+}
+
+/* =============================
+   Example Layout Helpers (Optional)
+============================= */
+.container {
+  padding: 2rem clamp(16px, 4%, 32px);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+button {
+  font-family: inherit;
+
+}

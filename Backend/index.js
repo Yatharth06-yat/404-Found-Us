@@ -1,9 +1,9 @@
 import express from 'express'
 import mysql from 'mysql2';
+import cors from 'cors';
 const app = express()
 const port = 3000
 
-// Replace with your actual credentials
 const connection = mysql.createConnection({
   host: 'sql8.freesqldatabase.com',
   user: 'sql8788955',
@@ -12,29 +12,32 @@ const connection = mysql.createConnection({
   port: 3306
 });
 
-// Connect to DB
+app.use(cors);
+
 connection.connect((err) => {
   if (err) {
     return console.error('❌ Connection error:', err.message);
   }
   console.log('✅ Connected to MySQL Database');
-
-  // Example Query (you can change table name)
-  connection.query('SELECT * FROM prescriptions', (err, results) => {
-    if (err) {
-    return console.error('❌ Connection error:', err.message);
-  }
-
-    console.log('📦 Prescription Data:'); 
-    console.table(results); // nicely formats the output
-
-    connection.end(); // close the connection
-  });
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+    console.log('API Request: /items received'); // Log when the route is hit
+    const sql = 'SELECT * FROM patients_list;';
+    console.log('Executing SQL Query:', sql);
+
+    connection.query(sql, (err, results) => {
+        if (err) {
+            console.error('Database Query Error:', err); // Log any database errors
+            return res.status(500).json({ error: 'Failed to fetch items' });
+        }
+        console.log('Database Query Successful. Results:', results); // <<< IMPORTANT: Log the results here!
+        if (results.length === 0) {
+            console.log('No items found in the database.');
+        }
+        res.json(results);
+    });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`) 
